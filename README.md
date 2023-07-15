@@ -32,3 +32,6 @@
 	- 現在地から近くのお店を検索
 - ショップレビュー機能（会員限定）
 - レコメンド機能（会員限定）
+
+### 画面遷移図
+https://www.figma.com/file/nxcfgLn3ZBsy3X9eND5Yrw/%E6%9C%8D%E3%82%AB%E3%83%95%E3%82%A7?type=design&node-id=0%3A1&mode=design&t=evAGQB4W63ESGNiF-1
