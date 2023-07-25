@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: fuku_cafe_production
-  username: fuku_cafe
-  password: <%= ENV["FUKU_CAFE_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
