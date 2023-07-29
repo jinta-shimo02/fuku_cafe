@@ -5,21 +5,26 @@
     <% end %>
     <%= link_to '服カフェ', root_path, class: 'btn btn-ghost normal-case text-xl' %>
   </div>
-  <div class="drawer-end">
+  <div class="drawer-end flex items-center">  
+    <% if user_signed_in? %>  
+      <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'mr-5' %>
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path, class: 'mr-5' %>
+    <% end %>
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
-      <label for="my-drawer-4" class="drawer-button">
-        <i class="fas fa-bars mr-5 h-5 w-5"></i>
-      </label>
+    <label for="my-drawer-4" class="drawer-button">
+      <i class="fas fa-bars mr-5 h-5 w-5"></i>
+    </label>
     <div class="drawer-side">
       <label for="my-drawer-4" class="drawer-overlay"></label>
-        <ul class="menu p-4 w-80 h-full bg-yellow-50 text-base-content ">
-          <%= link_to 'ホーム', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
-          <%= link_to 'マイページ', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
-          <%= link_to 'セレクトショップから検索', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
-          <%= link_to 'カフェから検索', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
-          <%= link_to 'ブランドから検索', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
-          <%= link_to '保存済み', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
-        </ul>
+      <ul class="menu p-4 w-80 h-full bg-yellow-50 text-base-content">
+        <%= link_to 'ホーム', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
+        <%= link_to 'マイページ', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
+        <%= link_to 'セレクトショップから検索', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
+        <%= link_to 'カフェから検索', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
+        <%= link_to 'ブランドから検索', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
+        <%= link_to '保存済み', '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
+      </ul>
     </div>
   </div>
 </div>
