@@ -1,0 +1,21 @@
+<div class="container mx-auto mb-20">
+  <div class="px-5 border-opacity-50">
+    <div class="grid place-items-center">
+      <h2 class="place-items-center my-6 text-2xl text-center text-bold text-gray-500">以下のメールアドレスに<br>パスワードリセット用のURLをお送りします</h2>
+    </div>
+    <div class="grid place-items-center">
+      <%= form_with model: resource, url: password_path(resource_name), method: :post, class: 'w-full px-5 md:w-3/5 md:px-0', local: true do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+
+        <div class="form-control ">
+          <%= f.label :email, class: 'label-text text-xl' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: 'sample@sample.com' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "送信", class: 'btn btn-wide btn-neutral w-full mt-10' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
