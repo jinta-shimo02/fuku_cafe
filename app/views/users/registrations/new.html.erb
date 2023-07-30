@@ -1,7 +1,7 @@
 <div class="container mx-auto mb-20">
   <div class="px-5 border-opacity-50">
     <div class="grid place-items-center">
-      <h2 class="place-items-centeer my-6 text-2xl text-bold">新規登録</h2>
+      <h2 class="place-items-centeer my-6 text-2xl text-bold"><%= t('.sign_up') %></h2>
     </div>
     <div class="grid place-items-center">
       <%= form_with model: resource, url: registration_path(resource_name), class: 'w-full px-5 md:w-3/5 md:px-0',  local: true do |f| %>
@@ -9,26 +9,26 @@
 
         <div class="form-control">
           <%= f.label :name, class: 'label-text text-xl' %>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: '○文字以内で入力ください' %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: t('placeholders.name') %>
         </div>
 
         <div class="form-control mt-5">
           <%= f.label :email, class: 'label-text text-xl' %>
-          <%= f.email_field :email, autocomplete: "email", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: 'sample@sample.com' %>
+          <%= f.email_field :email, autocomplete: "email", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: t('placeholders.email') %>
         </div>
 
         <div class="form-control mt-5">
           <%= f.label :password, class: 'label-text text-xl' %>
-          <%= f.password_field :password, autocomplete: "new-password", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: '半角英数字6文字以上を入力ください' %>
+          <%= f.password_field :password, autocomplete: "new-password", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: t('placeholders.password') %>
         </div>
 
         <div class="form-control mt-5">
           <%= f.label :password_confirmation, class: 'label-text text-xl' %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: '確認用でもう一度入力ください' %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: t('placeholders.password_confirmation') %>
         </div>
 
         <div class="actions">
-          <%= f.submit "新規登録", class: 'btn btn-wide btn-neutral w-full mt-10' %>
+          <%= f.submit t('.sign_up'), class: 'btn btn-wide btn-neutral w-full mt-10' %>
         </div>
       <% end %>
     </div>

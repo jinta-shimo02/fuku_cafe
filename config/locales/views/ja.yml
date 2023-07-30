@@ -1,0 +1,15 @@
+ja:
+  defaults:
+    sign_up:  'アカウント登録'
+    sign_in: 'ログイン'
+    sign_out: 'ログアウト'
+    privacy_policy: 'プライバシーポリシー'
+    terms: '利用規約'
+    home: 'ホーム'
+    mypage: 'マイページ'
+    search_map: 'マップから検索'
+    search_shop: 'セレクトショップから検索'
+    search_cafe: 'カフェから検索'
+    search_brand: 'ブランドから検索'
+    saved: '保存済み'
+
