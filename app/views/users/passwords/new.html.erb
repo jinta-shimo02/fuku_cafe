@@ -9,11 +9,11 @@
 
         <div class="form-control ">
           <%= f.label :email, class: 'label-text text-xl' %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: 'sample@sample.com' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: t('placeholders.email') %>
         </div>
 
         <div class="actions">
-          <%= f.submit "送信", class: 'btn btn-wide btn-neutral w-full mt-10' %>
+          <%= f.submit t('.sent'), class: 'btn btn-wide btn-neutral w-full mt-10' %>
         </div>
       <% end %>
     </div>
