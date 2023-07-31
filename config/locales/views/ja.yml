@@ -12,4 +12,9 @@ ja:
     search_cafe: 'カフェから検索'
     search_brand: 'ブランドから検索'
     saved: '保存済み'
+    my_page: 'マイページ'
+    profile_edit: 'プロフィール編集'
+
+    message:
+      updated: '更新しました'
 

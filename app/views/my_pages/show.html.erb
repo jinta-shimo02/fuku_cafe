@@ -1,0 +1,47 @@
+<div class="grid place-items-center mb-20">
+  <h1 class="text-3xl m-10"><%= t('defaults.my_page') %></h1>
+  <div class="card w-4/5 bg-base-100 shadow-md z-0">
+    <div class="card-body border-b border-gray-500 p-10">
+      <div class="flex justify-evenly items-center">
+        <%= image_tag 'logo.png', class: 'w-48 h-48' %>
+        <div class="flex flex-col">
+          <p class="mb-10 text-center"><%= @user.name %></p>
+          <%= link_to '編集', edit_my_page_path, class: 'btn btn-neutral' %>
+        </div>
+      </div>
+    </div>
+    <div class="card-body border-b border-gray-500 p-10">
+      <div class="flex justify-center items-center h-full">
+        <div class="card w-11/12 bg-base-200 border-gray-500 shadow-xl">
+          <div class="border-b border-gray-500 p-5">
+            <h2 class="text-xl">マイリスト</h3>
+          </div>
+          <div class="card-body p-5">
+            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
+            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
+            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
+            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
+            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body p-10">
+      <div class="flex flex-col justify-center items-center h-full">
+        <h2 class="text-left text-xl border-b border-gray-500 w-11/12 p-5">レビューしたショップ</h2>
+        <div class="card w-11/12 bg-base-200 border-gray-500 shadow-md m-2">
+          <p class="p-7">ショップ情報</p>
+        </div>
+        <div class="card w-11/12 bg-base-200 border-gray-500 shadow-md m-2">
+          <p class="p-7">ショップ情報</p>
+        </div>
+        <div class="card w-11/12 bg-base-200 border-gray-500 shadow-md m-2">
+          <p class="p-7">ショップ情報</p>
+        </div>
+        <div class="card w-11/12 bg-base-200 border-gray-500 shadow-md m-2">
+          <p class="p-7">ショップ情報</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
