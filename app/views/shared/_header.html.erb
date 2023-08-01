@@ -15,11 +15,11 @@
     <label for="my-drawer-4" class="drawer-button">
       <i class="fas fa-bars mr-5 h-5 w-5"></i>
     </label>
-    <div class="drawer-side">
+    <div class="drawer-side z-10">
       <label for="my-drawer-4" class="drawer-overlay"></label>
       <ul class="menu p-4 w-80 h-full bg-yellow-50 text-base-content">
         <%= link_to t('defaults.home'), '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
-        <%= link_to t('defaults.mypage'), '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
+        <%= link_to t('defaults.mypage'), my_page_path, class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
         <%= link_to t('defaults.search_shop'), '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
         <%= link_to t('defaults.search_cafe'), '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
         <%= link_to t('defaults.search_brand'), '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
