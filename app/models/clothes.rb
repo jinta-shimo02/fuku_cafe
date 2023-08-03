@@ -1,0 +1,2 @@
+class Clothes < Shop
+end
