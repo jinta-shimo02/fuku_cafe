@@ -58,6 +58,12 @@ gem 'devise'
 gem 'rails-i18n'
 gem 'devise-i18n'
 
+# admin
+gem 'rails_admin', '~> 3.0'
+
+# security
+gem 'dotenv-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
