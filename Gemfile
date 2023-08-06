@@ -57,6 +57,7 @@ gem 'devise'
 # localization
 gem 'rails-i18n'
 gem 'devise-i18n'
+gem 'enum_help'
 
 # admin
 gem 'rails_admin', '~> 3.0'

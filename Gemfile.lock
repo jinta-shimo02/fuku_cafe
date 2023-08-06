@@ -96,6 +96,8 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.12.0)
     ffi (1.15.5)
     globalid (1.1.0)
@@ -251,6 +253,7 @@ DEPENDENCIES
   devise
   devise-i18n
   dotenv-rails
+  enum_help
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
