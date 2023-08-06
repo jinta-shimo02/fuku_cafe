@@ -60,6 +60,7 @@ gem 'devise-i18n'
 
 # admin
 gem 'rails_admin', '~> 3.0'
+gem 'cancancan'
 
 # security
 gem 'dotenv-rails'
