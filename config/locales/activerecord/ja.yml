@@ -1,2 +1,22 @@
 ja:
   activerecord:
+    models:
+      shop: 'ショップ'
+      clothes:  '服'
+      cafe: 'カフェ'
+    attributes:
+      shop:
+        type: 'タイプ'
+        name: '店名'
+        postal_code: '郵便番号'
+        address: '住所'
+        phone_number: '電話番号'
+        opening_hours: '営業時間'
+        latitude: '緯度'
+        longitude: '経度'
+        place_id: 'place_id'
+  enums:
+    user:
+      role:
+        general: '一般'
+        admin: '管理者'

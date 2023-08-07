@@ -57,6 +57,14 @@ gem 'devise'
 # localization
 gem 'rails-i18n'
 gem 'devise-i18n'
+gem 'enum_help'
+
+# admin
+gem 'rails_admin', '~> 3.0'
+gem 'cancancan'
+
+# security
+gem 'dotenv-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -74,3 +82,4 @@ group :development do
   # gem "spring"
 end
 
+gem "sassc-rails"
