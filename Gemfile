@@ -74,6 +74,11 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  # test
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'webdrivers'
+  gem 'factory_bot_rails'
 end
 
 group :development do

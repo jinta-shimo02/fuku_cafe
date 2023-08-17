@@ -142,7 +142,7 @@ ja:
       not_locked: はロックされていません。
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+        other: "エラーが発生したため %{resource} は保存されませんでした。"
   placeholders:
     name: '○文字以上で入力してください'
     email: 'fukucafe@example.com'
