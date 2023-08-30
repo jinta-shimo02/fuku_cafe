@@ -99,7 +99,7 @@ window.initMap = function() {
               <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photo_reference=${clothes_image.image}&key=${API_KEY}" class="p-5 w-48 h-48 rounded-3xl">
               <div class="flex-col">
                 <ul>
-                  <li class="pl-6 pt-6 text-3xl underline">${shop.name}</li>
+                  <li class="pl-6 pt-6 text-3xl underline"><a href="/shops/${shop.id}">${shop.name}</a></li>
                   <li class="pl-6 pt-4">${shop.address}</li>
                   <li class="pl-6 pt-1.5">${shop.phone_number}</li>
                 </ul>
