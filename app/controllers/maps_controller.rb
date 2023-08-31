@@ -1,4 +1,6 @@
 class MapsController < ApplicationController
+  skip_before_action :authenticate_user!
+  
   def home
     gon.latitude = 35.6813843233819
     gon.longitude = 139.76712479697295
