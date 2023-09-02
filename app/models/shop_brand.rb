@@ -1,0 +1,2 @@
+class ShopBrand < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_02_054947) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_02_061414) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_054947) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shop_brands", force: :cascade do |t|
+    t.bigint "shop_id"
+    t.bigint "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_shop_brands_on_brand_id"
+    t.index ["shop_id", "brand_id"], name: "index_shop_brands_on_shop_id_and_brand_id", unique: true
+    t.index ["shop_id"], name: "index_shop_brands_on_shop_id"
   end
 
   create_table "shop_images", force: :cascade do |t|
@@ -57,5 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_054947) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "shop_brands", "brands"
+  add_foreign_key "shop_brands", "shops"
   add_foreign_key "shop_images", "shops"
 end
