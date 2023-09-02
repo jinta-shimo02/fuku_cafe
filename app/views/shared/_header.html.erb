@@ -6,6 +6,8 @@
     <%= link_to '服カフェ', root_path, class: 'btn btn-ghost normal-case text-xl' %>
   </div>
   <div class="drawer-end flex items-center">  
+    <button id="search-clothes-button" class="mx-5"><%= t('defaults.search_shop') %></button>
+    <button id="search-cafe-button" class="mr-5"><%= t('defaults.search_cafe') %></button>
     <% if user_signed_in? %>  
       <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'mr-5' %>
     <% else %>
@@ -20,8 +22,6 @@
       <ul class="menu p-4 w-80 h-full bg-yellow-50 text-base-content">
         <%= link_to t('defaults.home'), home_path, class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
         <%= link_to t('defaults.mypage'), my_page_path, class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
-        <%= link_to t('defaults.search_shop'), '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
-        <%= link_to t('defaults.search_cafe'), '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
         <%= link_to t('defaults.search_brand'), '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
         <%= link_to t('defaults.saved'), '#', class: 'mt-10 text-sm border-b border-gray-500 pb-2' %>
       </ul>
