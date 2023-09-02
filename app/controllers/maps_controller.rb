@@ -1,4 +1,6 @@
 class MapsController < ApplicationController
+  skip_before_action :authenticate_user!
+  
   def home
     gon.latitude = 35.6813843233819
     gon.longitude = 139.76712479697295
@@ -9,8 +11,19 @@ class MapsController < ApplicationController
     east = params[:east].to_f
     west = params[:west].to_f
 
-    @clothes = Clothes.includes(:shop_images).where(latitude: south..north, longitude: west..east)
-    @cafes = Cafe.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+    
+    is_clothes_filter = params[:is_clothes_filter] == 'true'
+    is_cafe_filter = params[:is_cafe_filter] == 'true'
+    
+    if params[:is_clothes_filter] == 'true'
+      @clothes = Clothes.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+    elsif params[:is_cafe_filter] == 'true'
+      @cafes = Cafe.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+    else
+      @clothes = Clothes.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+      @cafes = Cafe.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+    end
+
 
     respond_to do |format|
       format.html
