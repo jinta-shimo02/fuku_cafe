@@ -14,7 +14,7 @@
               <li class="my-2">
                 <ul class="flex space-x-2">
                   <% brand_group.each do |brand| %>
-                    <button><%= brand.name %></button>
+                    <button id="search-brand-button-<%= brand.id %>"><%= brand.name %></button>
                     <span>|</span>
                   <% end %>
                  </ul>

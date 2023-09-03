@@ -19,6 +19,10 @@ class MapsController < ApplicationController
       @clothes = Clothes.includes(:shop_images).where(latitude: south..north, longitude: west..east)
     elsif params[:is_cafe_filter] == 'true'
       @cafes = Cafe.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+    elsif params[:brand_name]
+      brand = Brand.find_by(name: params[:brand_name])
+      brand_shops = brand.shops
+      @clothes = brand_shops.includes(:shop_images).where(latitude: south..north, longitude: west..east)
     else
       @clothes = Clothes.includes(:shop_images).where(latitude: south..north, longitude: west..east)
       @cafes = Cafe.includes(:shop_images).where(latitude: south..north, longitude: west..east)
