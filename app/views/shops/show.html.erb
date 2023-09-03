@@ -16,7 +16,7 @@
       <p class="pl-20 mt-4 text-lg">ギャラリー</p>
       <div class="flex pl-10">
         <% @shop_images.each do |shop_image| %>
-          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=400&maxwidth=400&photo_reference=<%= shop_image.image %>&key=" class="mx-2 w-40 h-40 rounded-xl max-h-full max-w-full">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=400&maxwidth=400&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 w-40 h-40 rounded-xl max-h-full max-w-full">
         <% end %>
       </div>
     </div>
