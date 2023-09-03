@@ -7,13 +7,30 @@
   </div>
   <div class="drawer-end flex items-center">  
     <% if current_page?(home_path) %>
-      <button id="search-clothes-button" class="mx-5"><%= t('defaults.search_shop') %></button>
-      <button id="search-cafe-button" class="mr-5"><%= t('defaults.search_cafe') %></button>
+      <details class="dropdown">
+        <summary class="mr-5 ml-1"><%= t('defaults.search_brand') %></summary>
+          <ul class="p-2 shadow menu dropdown-content z-[1] bg-yellow-50 w-screen max-w-3xl">
+            <% @brands.each_slice(4) do |brand_group| %>
+              <li class="my-2">
+                <ul class="flex space-x-2">
+                  <% brand_group.each do |brand| %>
+                    <button id="search-brand-button-<%= brand.id %>"><%= brand.name %></button>
+                    <span>|</span>
+                  <% end %>
+                 </ul>
+              </li>
+            <% end %>
+          </ul>
+      </details>
+      <i class="fa-solid fa-shirt"></i>
+      <button id="search-clothes-button" class="mr-5 ml-1"><%= t('defaults.search_shop') %></button>
+      <i class="fa-solid fa-mug-saucer"></i>
+      <button id="search-cafe-button" class="mr-5 ml-1"><%= t('defaults.search_cafe') %></button>
     <% end %>
     <% if user_signed_in? %>  
-      <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'mr-5' %>
+      <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'mr-5 btn btn-neutral' %>
     <% else %>
-      <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'mr-5' %>
+      <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'mr-5 btn btn-neutral' %>
     <% end %>
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
     <label for="my-drawer-4" class="drawer-button">

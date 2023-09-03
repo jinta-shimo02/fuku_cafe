@@ -54,15 +54,32 @@ function initMap() {
     fillOpacity: 0.35,
   });
 
+  
   document.getElementById('search-clothes-button').addEventListener('click', function () {
     currentFilter = 'clothes';
-    performSearch(currentFilter);
+    filterSearch(currentFilter);
   });
 
   document.getElementById('search-cafe-button').addEventListener('click', function () {
     currentFilter = 'cafe';
-    performSearch(currentFilter);
+    filterSearch(currentFilter);
   });
+
+  var brandButtons = document.querySelectorAll('[id^="search-brand-button-"]');
+  brandButtons.forEach(function(button) {
+    button.addEventListener('click', function(event) {
+      var clickedElement = event.target;
+      var brandName = clickedElement.textContent;
+      currentFilter = 'brand';
+      filterSearch(currentFilter, brandName);
+
+      var dropdown = button.closest('.dropdown');
+      if (dropdown) {
+        dropdown.removeAttribute('open');
+      }
+    });
+  });
+
 
   map.addListener('dragend', updateSearch);
   pin.addListener('dragend', updateSearch);
@@ -71,10 +88,10 @@ function initMap() {
 function updateSearch() {
   pin.setPosition(map.getCenter());
   circle.setCenter(map.getCenter());
-  performSearch(currentFilter);
+  filterSearch(currentFilter);
 }
 
-function performSearch(filterType) {
+function filterSearch(filterType, brandName) {
   var circleCenter = circle.getCenter();
   var radius = circle.getRadius();
   var circleBounds = {
@@ -84,7 +101,15 @@ function performSearch(filterType) {
     west: circleCenter.lng() - radius / (111111 * Math.cos(circleCenter.lat() * Math.PI / 180))
   };
 
-  const filterParam = (filterType === 'cafe') ? 'is_cafe_filter=true' : (filterType === 'clothes') ? 'is_clothes_filter=true' : '';
+  var filterParam = '';
+
+  if (filterType === 'cafe') {
+    filterParam = 'is_cafe_filter=true';
+  } else if (filterType === 'clothes') {
+    filterParam = 'is_clothes_filter=true';
+  } else if (filterType === 'brand') {
+    filterParam = 'brand_name=' + brandName;
+  } 
 
   fetch(`/home.json?north=${circleBounds.north}&south=${circleBounds.south}&east=${circleBounds.east}&west=${circleBounds.west}&${filterParam}`)
     .then(response => response.json())
