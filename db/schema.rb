@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_135926) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_140246) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_135926) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "list_shops", force: :cascade do |t|
+    t.bigint "shop_saved_list_id"
+    t.bigint "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_list_shops_on_shop_id"
+    t.index ["shop_saved_list_id", "shop_id"], name: "index_list_shops_on_shop_saved_list_id_and_shop_id", unique: true
+    t.index ["shop_saved_list_id"], name: "index_list_shops_on_shop_saved_list_id"
   end
 
   create_table "shop_brands", force: :cascade do |t|
@@ -75,6 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_135926) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "list_shops", "shop_saved_lists"
+  add_foreign_key "list_shops", "shops"
   add_foreign_key "shop_brands", "brands"
   add_foreign_key "shop_brands", "shops"
   add_foreign_key "shop_images", "shops"

@@ -1,0 +1,2 @@
+class ListShop < ApplicationRecord
+end
