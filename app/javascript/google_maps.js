@@ -11,7 +11,7 @@ var maxMarkers = 10;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 15,
+    zoom: 14,
     center: new google.maps.LatLng(lat, lng),
     mapTypeId: 'roadmap',
     zoomControl: true,
@@ -80,6 +80,10 @@ function initMap() {
     });
   });
 
+  document.getElementById('maps_init').addEventListener('click', function() {
+    location.reload();
+  });
+
 
   map.addListener('dragend', updateSearch);
   pin.addListener('dragend', updateSearch);
@@ -126,9 +130,12 @@ function updateShopList(type, shops) {
   shopsListElement.innerHTML = '';
 
   if (shops && shops.length > 0) {
-    addMarkers(shops, type);
 
-    shops.forEach(shop => {
+    const limitedShops = shops.slice(0, 15);
+
+    addMarkers(limitedShops, type);
+
+    limitedShops.forEach(shop => {
       const shop_image = shop.shop_images[0];
 
       const shopCard = document.createElement('div');
@@ -163,12 +170,20 @@ function addMarkers(shops, type) {
   for (var i = 0; i < shops.length && i < maxMarkers; i++) {
     var markerIcon = '/assets/' + type.toLowerCase() + '_' + (i + 1) + '.png';
 
-    marker = new google.maps.Marker({
+    let marker = new google.maps.Marker({
       map: map,
       position: new google.maps.LatLng(shops[i].latitude, shops[i].longitude),
       icon: markerIcon
     });
 
+    const infowindow = new google.maps.InfoWindow({
+      content: '<div><strong>' + shops[i].name + '</strong></div>'
+    });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  
     markers.push(marker);
   }
 }
