@@ -151,6 +151,7 @@ function updateShopList(type, shops) {
               <li class="pl-6 pt-1.5">${shop.phone_number}</li>
             </ul>
           </div>
+          <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-10 mt-40 m-5" data-shop-id="${shop.id}"><i class="fa-regular fa-bookmark w-14 h-8"></i></a>
         </div>
       `;
 
@@ -183,7 +184,7 @@ function addMarkers(shops, type) {
     marker.addListener('click', function() {
       infowindow.open(map, marker);
     });
-  
+
     markers.push(marker);
   }
 }
