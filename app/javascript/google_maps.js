@@ -84,7 +84,6 @@ function initMap() {
     location.reload();
   });
 
-
   map.addListener('dragend', updateSearch);
   pin.addListener('dragend', updateSearch);
 }
@@ -142,7 +141,7 @@ function updateShopList(type, shops) {
       shopCard.className = 'card bg-base-200 border-gray-500 shadow-xl m-5';
 
       const cardContent = `
-        <div class="flex">
+        <div class="flex" data-controller="modal">
           <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=${shop_image.image}&key=${API_KEY}" class="p-5 w-48 h-48 rounded-3xl">
           <div class="flex-col">
             <ul>
@@ -151,7 +150,9 @@ function updateShopList(type, shops) {
               <li class="pl-6 pt-1.5">${shop.phone_number}</li>
             </ul>
           </div>
-          <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-10 mt-40 m-5" data-shop-id="${shop.id}"><i class="fa-regular fa-bookmark w-14 h-8"></i></a>
+            <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-10 mt-40 m-5 bookmark-icon" data-shop-id="${shop.id}">
+            <i class="fa-regular fa-bookmark w-14 h-8" data-modal-target="myModal"></i>
+            </a>
         </div>
       `;
 

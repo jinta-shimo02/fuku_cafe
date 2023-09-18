@@ -4,6 +4,8 @@ ja:
       shop: 'ショップ'
       clothes:  '服'
       cafe: 'カフェ'
+      brand: 'ブランド'
+      shop_saved_list: '保存リスト'
     attributes:
       shop:
         type: 'タイプ'
@@ -15,6 +17,10 @@ ja:
         latitude: '緯度'
         longitude: '経度'
         place_id: 'place_id'
+      brand:
+        name: 'ブランド名'
+      shop_saved_list:
+        name: 'リスト名'
   enums:
     user:
       role:
