@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
+  has_many :shop_saved_lists, dependent: :destroy
+         
   enum role: { general: 0, admin: 1 }
 
   validates :name, presence: true, length: { maximum: 255 }
