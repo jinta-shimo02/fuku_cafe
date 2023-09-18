@@ -148,6 +148,9 @@ function updateShopList(type, shops) {
               <li class="pl-6 pt-6 text-3xl underline"><a href="/shops/${shop.id}">${shop.name}</a></li>
               <li class="pl-6 pt-4">${shop.address}</li>
               <li class="pl-6 pt-1.5">${shop.phone_number}</li>
+              <a href="https://www.google.com/maps/search/?api=1&query=${shop.name}&query_place_id=${shop.place_id}" target=_"blank" rel="noopener noreferrer">
+              <li class="mt-3 py-3 px-3 text-center rounded-full bg-blue-500 text-white font-bold w-48">GoogleMapで見る</li>
+              </a>
             </ul>
           </div>
             <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-10 mt-40 m-5 bookmark-icon" data-shop-id="${shop.id}">
