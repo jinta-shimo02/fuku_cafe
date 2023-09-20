@@ -4,7 +4,8 @@
       <h2 class="place-items-centeer my-6 text-2xl text-bold"><%= t('defaults.profile_edit') %></h2>
     </div>
     <div class="grid place-items-center">
-      <%= form_with model: @user, url: my_page_path, method: :patch, class: 'w-full px-5 md:w-3/5 md:px-0', local: true do |f| %>
+      <%= form_with model: @user, url: my_page_path, class: 'w-full px-5 md:w-3/5 md:px-0', local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
         <div class="form-control">
           <%= f.label :name, class: 'label-text text-xl' %>
           <%= f.text_field :name, class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50' %>
