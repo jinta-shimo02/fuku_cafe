@@ -17,4 +17,5 @@ ja:
 
     message:
       updated: '更新しました'
+      update_failed: '更新に失敗しました'
 

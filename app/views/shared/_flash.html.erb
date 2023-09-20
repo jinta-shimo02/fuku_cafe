@@ -1,3 +1,11 @@
 <% flash.each do |key, value| %>
-  <%= content_tag :div, value, class: "flash flash_#{key}" %>
+  <% if key == 'success' || key == 'notice' %>
+    <div class="flex items-center bg-green-400 text-white text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
+  <% elsif key == 'info' %>
+    <div class="flex items-center bg-blue-400 text-white text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
+  <% elsif key == 'warning' %>
+    <div class="flex items-center bg-yellow-400 text-white text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
+  <% elsif key == 'danger' %>
+    <div class="flex items-center bg-red-400 text-white text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
+  <% end %>
 <% end %>
