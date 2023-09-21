@@ -8,15 +8,21 @@
           <span class="mt-4"><%= raw @shop.opening_hours.gsub(/(～\d+時\d+分|定休日)/, "\\1<br>") %></span>
         </div>
       <p class="pl-20 mt-4 text-lg">電話番号：<%= @shop.phone_number %></p>
-      <p class="pl-20 mt-4 text-lg">公式サイト：<span class="text-blue-500"><%= link_to "#{@shop.web_site.chomp('/')}", @shop.web_site.chomp('/') %></span></p>
-      <p class="pl-20 mt-4 text-lg">取扱ブランド</p>
-      <% @shop.brands.each do |brand| %>
-        <p class="text-lg text-center"><%= brand.name %></p>
+      <p class="pl-20 mt-4 text-lg">公式サイト：
+        <span class="text-blue-500">
+          <%= @shop.web_site.present? ? link_to(@shop.web_site.chomp('/'), @shop.web_site.chomp('/'), target: :_brank) : 'サイトがありません' %>
+        </span>
+      </p>
+      <% if @shop.clothes? %>
+        <p class="pl-20 mt-4 text-lg">取扱ブランド</p>
+        <% @shop.brands.each do |brand| %>
+         <p class="text-lg text-center"><%= brand.name %></p>
+        <% end %>
       <% end %>
       <p class="pl-20 mt-4 text-lg">ギャラリー</p>
       <div class="flex pl-10">
         <% @shop_images.each do |shop_image| %>
-          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=400&maxwidth=400&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 w-40 h-40 rounded-xl max-h-full max-w-full">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 rounded-xl w-48 h-48">
         <% end %>
       </div>
     </div>
