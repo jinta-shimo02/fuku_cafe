@@ -1,4 +1,5 @@
 class ListShopsController < ApplicationController
+
   def create
     @shop_saved_list = ShopSavedList.find(params[:list_id])
     @shop = Shop.find(params[:shop_id])
