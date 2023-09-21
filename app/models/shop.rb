@@ -9,4 +9,8 @@ class Shop < ApplicationRecord
   validates :latitude, presence: true
   validates :longitude, presence: true
   validates :place_id, presence: true
+
+  def clothes?
+    self.type == "Clothes"
+  end 
 end

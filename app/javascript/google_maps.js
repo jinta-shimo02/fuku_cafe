@@ -149,7 +149,10 @@ function updateShopList(type, shops) {
               <li class="pl-6 pt-4">${shop.address}</li>
               <li class="pl-6 pt-1.5">${shop.phone_number}</li>
               <a href="https://www.google.com/maps/search/?api=1&query=${shop.name}&query_place_id=${shop.place_id}" target=_"blank" rel="noopener noreferrer">
-              <li class="mt-3 py-3 px-3 text-center rounded-full bg-blue-500 text-white font-bold w-48">GoogleMapで見る</li>
+              <li class="mt-3 py-3 px-3 text-center rounded-full bg-blue-500 text-white font-bold w-48">
+                <i class="fa-solid fa-location-dot"></i>
+                GoogleMapで見る
+              </li>
               </a>
             </ul>
           </div>
