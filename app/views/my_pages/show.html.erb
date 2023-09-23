@@ -18,7 +18,7 @@
           </div>
           <div class="card-body p-5">
             <% @shop_saved_lists.each do |list| %>
-              <%= link_to list.name, "#", class: 'text-left border-b border-gray-500 p-3'%>
+              <%= link_to list.name, shop_saved_list_path(list), class: 'text-left border-b border-gray-500 p-3'%>
             <% end %>
           </div>
         </div>

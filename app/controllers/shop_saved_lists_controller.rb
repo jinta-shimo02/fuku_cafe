@@ -1,4 +1,5 @@
 class ShopSavedListsController < ApplicationController
+  before_action :set_list, only: %i[show]
 
   def index
     @shop_saved_lists = current_user.shop_saved_lists
@@ -18,9 +19,15 @@ class ShopSavedListsController < ApplicationController
     end
   end
 
+  def show; end
+
   private
 
   def list_params
     params.require(:shop_saved_list).permit(:name)
+  end
+
+  def set_list
+    @shop_saved_list = ShopSavedList.find(params[:id])
   end
 end
