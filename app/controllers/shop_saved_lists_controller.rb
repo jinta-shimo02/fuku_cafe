@@ -1,5 +1,5 @@
 class ShopSavedListsController < ApplicationController
-  before_action :set_list, only: %i[show]
+  before_action :set_list, only: %i[show edit update]
 
   def index
     @shop_saved_lists = current_user.shop_saved_lists
@@ -15,11 +15,24 @@ class ShopSavedListsController < ApplicationController
       redirect_to shop_saved_lists_path
     else
       render :new
-      
     end
   end
 
   def show; end
+
+  def edit; end
+
+  def update
+    if @shop_saved_list.update(list_params)
+      flash.now.notice = "リスト名を更新しました"
+      render turbo_stream: [
+        turbo_stream.replace(@shop_saved_list),
+        turbo_stream.update("flash", partial: "shared/flash")
+      ]
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   private
 

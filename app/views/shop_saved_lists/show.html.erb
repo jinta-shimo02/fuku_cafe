@@ -1,7 +1,7 @@
 <div class="grid place-items-center mb-20">
   <div class="card w-4/5 bg-base-100 shadow-md z-0 m-20">
-    <div class="card-body border-b border-gray-500 p-10">
-      <p class="text-xl"><%= @shop_saved_list.name %></p>
+    <div class="card-body border-b border-gray-500 p-14">
+      <%= render "shop_saved_list", shop_saved_list: @shop_saved_list %>
     </div>
     <div class="card-body border-b border-gray-500 p-10">
       <% @shop_saved_list.shops.each do |shop| %>
@@ -25,7 +25,7 @@
               </li>
             </ul>
           </div>
-          <i class="fa-regular fa-bookmark w-14 h-8 ml-auto mr-10 mt-40 m-5"></i>
+          <%# <i class="fa-regular fa-bookmark w-14 h-8 ml-auto mr-10 mt-40 m-5"></i> %>
         </div>
         </div>
       <% end %>
