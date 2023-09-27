@@ -1,4 +1,5 @@
 class ListShopsController < ApplicationController
+
   def create
     @shop_saved_list = ShopSavedList.find(params[:list_id])
     @shop = Shop.find(params[:shop_id])
@@ -11,5 +12,15 @@ class ListShopsController < ApplicationController
     end
   end
   
-  def destroy; end
+  def destroy
+    shop_saved_list = current_user.shop_saved_lists.find_by(id: params[:id])
+    shop = Shop.find(params[:shop_id])
+
+    if shop_saved_list.shops.destroy(shop)
+      redirect_to shop_saved_list_path(shop_saved_list), success: '削除しました'
+    else
+      flash.now[:error] = '削除に失敗しました'
+      render template: 'shop_saved_list/show'
+    end
+  end
 end

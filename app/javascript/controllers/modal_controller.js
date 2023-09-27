@@ -26,7 +26,7 @@ export default class extends Controller {
     if (shopId && listId) {
       const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-      fetch(`/list_shops?shop_id=${shopId}&list_id=${listId}`, {
+      fetch(`/shops/${shopId}/list_shops?list_id=${listId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

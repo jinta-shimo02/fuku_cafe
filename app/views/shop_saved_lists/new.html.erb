@@ -3,6 +3,7 @@
     <div class="modal-content bg-white rounded-xl shadow-lg p-10 w-[450px]">
       <h2 class="text-lg font-semibold mb-6">新しいリスト</h2>
       <%= form_with model: @shop_saved_list, data: { action: "turbo:submit-end->modal#new_list_close"} do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
         <div class="flex flex-col justify-center mt-4">
           <%= f.text_field :name, class: 'input input-warning border-gray-800' %>
           <div class="ml-auto">

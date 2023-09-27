@@ -14,21 +14,22 @@
       <div class="flex justify-center items-center h-full">
         <div class="card w-11/12 bg-base-200 border-gray-500 shadow-xl">
           <div class="border-b border-gray-500 p-5">
-            <h2 class="text-xl">マイリスト</h3>
+            <h2 class="text-xl"><%= t('defaults.shop_saved_list')%></h3>
           </div>
           <div class="card-body p-5">
-            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
-            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
-            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
-            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
-            <p class="text-left border-b border-gray-500 p-3">リスト一覧</p>
+            <% @shop_saved_lists.each do |list| %>
+              <div class="flex justify-between border-b border-gray-500">
+                <%= link_to list.name, shop_saved_list_path(list), class: 'text-left border-b p-3'%>
+                <%= link_to '削除', shop_saved_list_path(list), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn bg-red-500 mb-1' %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
     <div class="card-body p-10">
       <div class="flex flex-col justify-center items-center h-full">
-        <h2 class="text-left text-xl border-b border-gray-500 w-11/12 p-5">レビューしたショップ</h2>
+        <h2 class="text-left text-xl border-b border-gray-500 w-11/12 p-5">レビューしたショップ（まだ機能していません）</h2>
         <div class="card w-11/12 bg-base-200 border-gray-500 shadow-md m-2">
           <p class="p-7">ショップ情報</p>
         </div>

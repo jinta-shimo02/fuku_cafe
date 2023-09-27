@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   devise_for :users
   resource :my_page, only: %i[show edit update]
 
-  resources :shops, only: %i[show]
-  resources :shop_saved_lists, only: %i[index new create]
-  resources :list_shops, only: %i[create destroy]
+  resources :shops, only: %i[show] do 
+    resources :list_shops, only: %i[create destroy]
+  end
+  resources :shop_saved_lists
 end
