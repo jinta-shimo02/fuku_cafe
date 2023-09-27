@@ -41,6 +41,6 @@ class ShopSavedListsController < ApplicationController
   end
 
   def set_list
-    @shop_saved_list = ShopSavedList.find(params[:id])
+    @shop_saved_list = current_user.shop_saved_lists.find(params[:id])
   end
 end

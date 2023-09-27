@@ -25,7 +25,7 @@
               </li>
             </ul>
           </div>
-          <%# <i class="fa-regular fa-bookmark w-14 h-8 ml-auto mr-10 mt-40 m-5"></i> %>
+          <%= link_to "削除", shop_list_shop_path(shop_id: shop),  data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"  }, class: 'w-20 h12 rounded-xl ml-auto mr-10 mt-32 m-5 btn bg-red-500' %>
         </div>
         </div>
       <% end %>
