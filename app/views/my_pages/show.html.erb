@@ -18,7 +18,10 @@
           </div>
           <div class="card-body p-5">
             <% @shop_saved_lists.each do |list| %>
-              <%= link_to list.name, shop_saved_list_path(list), class: 'text-left border-b border-gray-500 p-3'%>
+              <div class="flex justify-between border-b border-gray-500">
+                <%= link_to list.name, shop_saved_list_path(list), class: 'text-left border-b p-3'%>
+                <%= link_to '削除', shop_saved_list_path(list), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn bg-red-500 mb-1' %>
+              </div>
             <% end %>
           </div>
         </div>

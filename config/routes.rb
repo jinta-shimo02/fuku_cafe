@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   resources :shops, only: %i[show] do 
     resources :list_shops, only: %i[create destroy]
   end
-  resources :shop_saved_lists, only: %i[index new create show edit update]
+  resources :shop_saved_lists
 end

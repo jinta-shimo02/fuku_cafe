@@ -1,5 +1,5 @@
 class ShopSavedListsController < ApplicationController
-  before_action :set_list, only: %i[show edit update]
+  before_action :set_list, only: %i[show edit update destroy]
 
   def index
     @shop_saved_lists = current_user.shop_saved_lists
@@ -31,6 +31,12 @@ class ShopSavedListsController < ApplicationController
       ]
     else
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @shop_saved_list.destroy!
+      redirect_to my_page_path, success: "リストを削除しました"
     end
   end
 
