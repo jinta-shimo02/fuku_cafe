@@ -145,11 +145,11 @@ function updateShopList(type, shops) {
           <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=${shop_image.image}&key=${API_KEY}" class="p-5 w-48 h-48 rounded-3xl">
           <div class="flex-col">
             <ul>
-              <li class="pl-6 pt-6 text-3xl underline"><a href="/shops/${shop.id}">${shop.name}</a></li>
+              <li class="pl-6 pt-6 text-3xl underline hover:text-yellow-500"><a href="/shops/${shop.id}">${shop.name}</a></li>
               <li class="pl-6 pt-4">${shop.address}</li>
               <li class="pl-6 pt-1.5">${shop.phone_number}</li>
               <a href="https://www.google.com/maps/search/?api=1&query=${shop.name}&query_place_id=${shop.place_id}" target=_"blank" rel="noopener noreferrer">
-              <li class="mt-3 py-3 px-3 text-center rounded-full bg-blue-500 text-white font-bold w-48">
+              <li class="mt-1.5 py-3 px-3 text-center rounded-full bg-blue-500 text-white font-bold w-48 hover:bg-gray-300">
                 <i class="fa-solid fa-location-dot"></i>
                 GoogleMapで見る
               </li>
@@ -157,7 +157,7 @@ function updateShopList(type, shops) {
             </ul>
           </div>
             <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-10 mt-40 m-5 bookmark-icon" data-shop-id="${shop.id}">
-            <i class="fa-regular fa-bookmark w-14 h-8" data-modal-target="myModal"></i>
+            <i class="fa-solid fa-plus w-14 h-8 hover:text-yellow-500" data-modal-target="myModal"></i>
             </a>
         </div>
       `;
