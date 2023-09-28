@@ -11,6 +11,6 @@ class Shop < ApplicationRecord
   validates :place_id, presence: true
 
   def clothes?
-    self.type == "Clothes"
+    type == "Clothes"
   end 
 end
