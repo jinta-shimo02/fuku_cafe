@@ -20,29 +20,22 @@
         <% end %>
       <% end %>
       <p class="pl-20 mt-4 text-lg">ギャラリー</p>
-      <div class="flex pl-10">
+      <div class="flex overflow-x-hidden">
         <% @shop_images.each do |shop_image| %>
-          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 rounded-xl w-48 h-48">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 rounded-xl w-32 h-32">
         <% end %>
       </div>
     </div>
     <div class="card-body border-t border-gray-500 p-10">
       <div class="flex justify-center items-center h-full">
-        <div class="card w-11/12 bg-base-200 shadow-xl">
+        <div class="card w-full bg-base-200 shadow-xl">
           <p class="pl-10 py-10 text-lg">レビュー</p>
           <div class="flex">
-              <p class="text-sm text-center">まだ機能していません</p>
+              <p class="text-2xl font-bold  text-center">まだ機能していません</p>
           </div>
           <div class="flex justify-end mx-10 mt-10 mb-5">
             <%= link_to 'レビューを書く', '#', class: 'btn btn-neutral w-48 h-10 ' %>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="card-body border-t border-gray-500 p-10">
-      <div class="flex justify-center items-center h-full">
-        <div class="card w-11/12 bg-base-200 shadow-xl">
-          <p class="pl-10 py-10 text-ls">近くのおすすめカフェ（まだ機能していません）</p>
         </div>
       </div>
     </div>
