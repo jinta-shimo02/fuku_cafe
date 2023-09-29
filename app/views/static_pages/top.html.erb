@@ -1,17 +1,45 @@
-<div class="flex justify-center items-center h-screen">
-  <div class="flex items-center">
-    <%= image_tag 'logo.png', class: 'm-auto rounded-full mr-4' %>
-    <div class="flex flex-col items-center ml-32">
-      <p class="text-5xl font-bold">
-        ショップ探し困っていませんか？
-      </p>
-      <p class="text-3xl mt-20">
-        あなた好みのお店はきっとそこにある
-      </p>
-      <div class="mt-32 flex">
-        <%= link_to t('defaults.search_map'), home_path, class: 'bg-orange-300 py-4 px-16 rounded-xl mr-10 text-xl' %>
-        <%= link_to t('defaults.sign_up'), new_user_registration_path, class: 'bg-gray-300 py-4 px-16 rounded-xl text-xl' %>
+<div class="grid place-items-center">
+  <div class="flex justify-center items-center h-screen">
+    <div class="flex items-center font-bold">
+      <%= image_tag 'logo.png', class: 'm-auto rounded-full ml-6 w-80 h-80' %>
+      <div class="flex flex-col items-center ml-12">
+        <p class="text-3xl">
+          ショップ探し困ってませんか？
+        </p>
+        <p class="text-xl mt-20">
+          あなた好みのお店はきっとそこにある
+        </p>
+        <div class="mt-24 flex">
+          <%= link_to t('defaults.search_map'), home_path, class: 'bg-orange-300 py-4 px-12 font-bold rounded-2xl mr-10 text-lg hover:bg-orange-500' %>
+          <%= link_to t('defaults.sign_up'), new_user_registration_path, class: 'bg-gray-300 py-4 px-12 font-bold rounded-2xl text-lg hover:bg-gray-500' %>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="text-center w-2/3 border-gray-500 border-y-2 border-yellow-400 py-10">
+    <h1 class="text-4xl mb-5 font-bold">服カフェとは</h1>
+    <p class="text-lg text-gray-500">服好き・カフェ好きのためのショップ検索サービスです</p>
+  </div>
+  <h1 class="text-2xl font-bold text-center mt-20">服カフェでできること</h2>
+  <div class="flex items-center justify-center mt-20 w-9/12">
+    <div class="text-center mr-5">
+      <h2 class="text-xl mb-5 font-bold">マップ上からショップを検索</h2>
+      <p class="text-sm text-gray-500">マップをドラッグすることで検索ができます</p>
+    </div>
+    <%= image_tag 'map.png', class: 'w-96 h-96 ml-5' %>
+  </div>
+  <div class="flex items-center justify-center mt-28 w-9/12">
+    <div class="text-center mr-5">
+      <h2 class="text-xl mb-5 font-bold ">リストへ保存</h2>
+      <p class="text-sm text-gray-500">気になったショップを作成したリストへ保存できます</p>
+    </div>
+    <%= image_tag 'list.png', class: 'w-96 h-96 ml-5' %>
+  </div>
+  <div class="flex items-center justify-center mt-28 mb-20 w-9/12">
+    <div class="text-center mr-5">
+      <h2 class="text-xl mb-5 font-bold ">レビューを書く</h2>
+      <p class="text-sm text-gray-500">ショップへのレビューを書くことができます</p>
+    </div>
+    <%= image_tag 'review.png', class: 'w-96 h-96 ml-5' %>
   </div>
 </div>
