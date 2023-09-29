@@ -3,7 +3,7 @@
     <%= link_to root_path do %>
       <%= image_tag 'logo.png', class: 'rounded-full h-16 w-16 ml-5 mr-2' %>
     <% end %>
-    <%= link_to '服カフェ', root_path, class: 'font-bold text-xl hover:text-yellow-500' %>
+    <%= link_to '服カフェ', home_path, class: 'font-bold text-xl hover:text-yellow-500' %>
   </div>
   <div class="drawer-end flex items-center">  
     <% if current_page?(home_path) %>
@@ -43,7 +43,7 @@
     <div class="drawer-side z-10">
       <label for="my-drawer-4" class="drawer-overlay"></label>
       <ul class="menu p-4 w-80 h-full bg-yellow-50 text-base-content">
-        <%= link_to t('defaults.home'), home_path, class: 'pl-1 mt-10 text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
+        <%= link_to t('defaults.maps'), home_path, class: 'pl-1 mt-10 text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
         <%= link_to t('defaults.mypage'), my_page_path, class: 'pl-1 mt-10 text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
         <% if current_user %>
           <li class='pl-1 mt-10 text-sm border-b border-gray-500 pb-2'><%= t('defaults.shop_saved_list') %></li>
