@@ -119,6 +119,10 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.5)
+    geokit (1.14.0)
+    geokit-rails (2.5.0)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     gon (6.4.0)
@@ -353,6 +357,7 @@ DEPENDENCIES
   dotenv-rails
   enum_help
   factory_bot_rails
+  geokit-rails
   gon
   google_places
   jbuilder

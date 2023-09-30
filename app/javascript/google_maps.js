@@ -8,6 +8,7 @@ var cafesMarker = [];
 var API_KEY = gon.api_key;
 var currentFilter = 'all';
 var maxMarkers = 10;
+var brandName;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -69,39 +70,38 @@ function initMap() {
   brandButtons.forEach(function(button) {
     button.addEventListener('click', function(event) {
       var clickedElement = event.target;
-      var brandName = clickedElement.textContent;
+      brandName = clickedElement.textContent;
       currentFilter = 'brand';
       filterSearch(currentFilter, brandName);
-
+      
       var dropdown = button.closest('.dropdown');
       if (dropdown) {
         dropdown.removeAttribute('open');
       }
     });
   });
-
+  
   document.getElementById('maps_init').addEventListener('click', function() {
     location.reload();
   });
-
+  
   map.addListener('dragend', updateSearch);
   pin.addListener('dragend', updateSearch);
 }
+window.initMap = initMap;
 
 function updateSearch() {
   pin.setPosition(map.getCenter());
   circle.setCenter(map.getCenter());
-  filterSearch(currentFilter);
+  filterSearch(currentFilter, brandName);
 }
 
 function filterSearch(filterType, brandName) {
   var circleCenter = circle.getCenter();
   var radius = circle.getRadius();
-  var circleBounds = {
-    north: circleCenter.lat() + radius / 111111,
-    south: circleCenter.lat() - radius / 111111,
-    east: circleCenter.lng() + radius / (111111 * Math.cos(circleCenter.lat() * Math.PI / 180)),
-    west: circleCenter.lng() - radius / (111111 * Math.cos(circleCenter.lat() * Math.PI / 180))
+  var circleLatLng = {
+    latitude: circleCenter.lat(),
+    longitude: circleCenter.lng()
   };
 
   var filterParam = '';
@@ -114,7 +114,7 @@ function filterSearch(filterType, brandName) {
     filterParam = 'brand_name=' + brandName;
   } 
 
-  fetch(`/home.json?north=${circleBounds.north}&south=${circleBounds.south}&east=${circleBounds.east}&west=${circleBounds.west}&${filterParam}`)
+  fetch(`/home.json?latitude=${circleLatLng.latitude}&longitude=${circleLatLng.longitude}&${filterParam}`)
     .then(response => response.json())
     .then(data => {
       clearMarkers();
@@ -203,5 +203,3 @@ function clearMarkers() {
   clothesMarker = [];
   cafesMarker = [];
 }
-
-window.initMap = initMap;
