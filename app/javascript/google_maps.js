@@ -127,7 +127,8 @@ function filterSearch(filterType, brandName) {
 function updateShopList(type, shops) {
   const shopsListElement = document.getElementById(`${type}-list`);
   shopsListElement.innerHTML = '';
-
+  const userIsLoggedIn = gon.user_logged_in;
+  
   if (shops && shops.length > 0) {
 
     const limitedShops = shops.slice(0, 15);
@@ -157,7 +158,7 @@ function updateShopList(type, shops) {
             </ul>
           </div>
             <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-10 mt-40 m-5 bookmark-icon" data-shop-id="${shop.id}">
-            <i class="fa-solid fa-plus w-14 h-8 hover:text-yellow-500" data-modal-target="myModal"></i>
+            ${userIsLoggedIn ? '<i class="fa-solid fa-plus w-14 h-8 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
             </a>
         </div>
       `;

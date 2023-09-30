@@ -5,6 +5,7 @@ class MapsController < ApplicationController
     gon.latitude = 35.6813843233819
     gon.longitude = 139.76712479697295
     gon.api_key = ENV['API_KEY']
+    gon.user_logged_in = user_signed_in?
 
     north = params[:north].to_f
     south = params[:south].to_f
