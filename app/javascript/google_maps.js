@@ -8,6 +8,7 @@ var cafesMarker = [];
 var API_KEY = gon.api_key;
 var currentFilter = 'all';
 var maxMarkers = 10;
+var brandName;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -69,7 +70,7 @@ function initMap() {
   brandButtons.forEach(function(button) {
     button.addEventListener('click', function(event) {
       var clickedElement = event.target;
-      var brandName = clickedElement.textContent;
+      brandName = clickedElement.textContent;
       currentFilter = 'brand';
       filterSearch(currentFilter, brandName);
       
@@ -92,7 +93,7 @@ window.initMap = initMap;
 function updateSearch() {
   pin.setPosition(map.getCenter());
   circle.setCenter(map.getCenter());
-  filterSearch(currentFilter);
+  filterSearch(currentFilter, brandName);
 }
 
 function filterSearch(filterType, brandName) {
