@@ -7,26 +7,23 @@ class MapsController < ApplicationController
     gon.api_key = ENV['API_KEY']
     gon.user_logged_in = user_signed_in?
 
-    north = params[:north].to_f
-    south = params[:south].to_f
-    east = params[:east].to_f
-    west = params[:west].to_f
-
+    latitude = params[:latitude].to_f
+    longitude = params[:longitude].to_f
     
     is_clothes_filter = params[:is_clothes_filter] == 'true'
     is_cafe_filter = params[:is_cafe_filter] == 'true'
     
     if params[:is_clothes_filter] == 'true'
-      @clothes = Clothes.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+      @clothes = Clothes.includes(:shop_images).within(1, origin: [latitude, longitude]).by_distance(origin: [latitude, longitude])
     elsif params[:is_cafe_filter] == 'true'
-      @cafes = Cafe.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+      @cafes = Cafe.includes(:shop_images).within(1, origin: [latitude, longitude]).by_distance(origin: [latitude, longitude])
     elsif params[:brand_name]
       brand = Brand.find_by(name: params[:brand_name])
       brand_shops = brand.shops
-      @clothes = brand_shops.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+      @clothes = brand_shops.includes(:shop_images).within(1, origin: [latitude, longitude]).by_distance(origin: [latitude, longitude])
     else
-      @clothes = Clothes.includes(:shop_images).where(latitude: south..north, longitude: west..east)
-      @cafes = Cafe.includes(:shop_images).where(latitude: south..north, longitude: west..east)
+      @clothes = Clothes.includes(:shop_images).within(1, origin: [latitude, longitude]).by_distance(origin: [latitude, longitude])
+      @cafes = Cafe.includes(:shop_images).within(1, origin: [latitude, longitude]).by_distance(origin: [latitude, longitude])
     end
 
 

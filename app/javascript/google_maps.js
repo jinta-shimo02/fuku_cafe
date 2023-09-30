@@ -99,11 +99,9 @@ function updateSearch() {
 function filterSearch(filterType, brandName) {
   var circleCenter = circle.getCenter();
   var radius = circle.getRadius();
-  var circleBounds = {
-    north: circleCenter.lat() + radius / 111111,
-    south: circleCenter.lat() - radius / 111111,
-    east: circleCenter.lng() + radius / (111111 * Math.cos(circleCenter.lat() * Math.PI / 180)),
-    west: circleCenter.lng() - radius / (111111 * Math.cos(circleCenter.lat() * Math.PI / 180))
+  var circleLatLng = {
+    latitude: circleCenter.lat(),
+    longitude: circleCenter.lng()
   };
 
   var filterParam = '';
@@ -116,7 +114,7 @@ function filterSearch(filterType, brandName) {
     filterParam = 'brand_name=' + brandName;
   } 
 
-  fetch(`/home.json?north=${circleBounds.north}&south=${circleBounds.south}&east=${circleBounds.east}&west=${circleBounds.west}&${filterParam}`)
+  fetch(`/home.json?latitude=${circleLatLng.latitude}&longitude=${circleLatLng.longitude}&${filterParam}`)
     .then(response => response.json())
     .then(data => {
       clearMarkers();
