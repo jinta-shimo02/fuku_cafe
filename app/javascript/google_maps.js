@@ -72,21 +72,22 @@ function initMap() {
       var brandName = clickedElement.textContent;
       currentFilter = 'brand';
       filterSearch(currentFilter, brandName);
-
+      
       var dropdown = button.closest('.dropdown');
       if (dropdown) {
         dropdown.removeAttribute('open');
       }
     });
   });
-
+  
   document.getElementById('maps_init').addEventListener('click', function() {
     location.reload();
   });
-
+  
   map.addListener('dragend', updateSearch);
   pin.addListener('dragend', updateSearch);
 }
+window.initMap = initMap;
 
 function updateSearch() {
   pin.setPosition(map.getCenter());
@@ -203,5 +204,3 @@ function clearMarkers() {
   clothesMarker = [];
   cafesMarker = [];
 }
-
-window.initMap = initMap;
