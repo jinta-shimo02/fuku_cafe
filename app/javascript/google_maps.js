@@ -176,7 +176,7 @@ function updateShopList(type, shops) {
 function addMarkers(shops, type) {
   const markers = (type === 'clothes') ? clothesMarker : cafesMarker;
   for (var i = 0; i < shops.length && i < maxMarkers; i++) {
-    var markerIcon = '/assets/' + type.toLowerCase() + '_' + (i + 1) + '.png';
+    var markerIcon = '/images/' + type.toLowerCase() + '_' + (i + 1) + '.png';
 
     let marker = new google.maps.Marker({
       map: map,
