@@ -9,10 +9,7 @@ class MapsController < ApplicationController
 
     latitude = params[:latitude].to_f
     longitude = params[:longitude].to_f
-    
-    is_clothes_filter = params[:is_clothes_filter] == 'true'
-    is_cafe_filter = params[:is_cafe_filter] == 'true'
-    
+
     if params[:is_clothes_filter] == 'true'
       @clothes = Clothes.includes(:shop_images).within(1, origin: [latitude, longitude]).by_distance(origin: [latitude, longitude])
     elsif params[:is_cafe_filter] == 'true'
@@ -26,13 +23,14 @@ class MapsController < ApplicationController
       @cafes = Cafe.includes(:shop_images).within(1, origin: [latitude, longitude]).by_distance(origin: [latitude, longitude])
     end
 
-
     respond_to do |format|
       format.html
-      format.json { render json: {
-         clothes: @clothes.as_json(include: :shop_images),
-         cafes: @cafes.as_json(include: :shop_images)
-        } }
+      format.json do
+        render json: {
+          clothes: @clothes.as_json(include: :shop_images),
+          cafes: @cafes.as_json(include: :shop_images)
+        }
+      end
     end
   end
 end

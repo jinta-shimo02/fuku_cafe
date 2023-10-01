@@ -35,9 +35,8 @@ class ShopSavedListsController < ApplicationController
   end
 
   def destroy
-    if @shop_saved_list.destroy!
-      redirect_to my_page_path, success: "リストを削除しました"
-    end
+    @shop_saved_list.destroy!
+    redirect_to my_page_path, success: "リストを削除しました"
   end
 
   private

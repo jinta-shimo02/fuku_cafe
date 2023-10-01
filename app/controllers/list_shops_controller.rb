@@ -1,5 +1,4 @@
 class ListShopsController < ApplicationController
-
   def create
     @shop_saved_list = ShopSavedList.find(params[:list_id])
     @shop = Shop.find(params[:shop_id])
@@ -11,7 +10,7 @@ class ListShopsController < ApplicationController
       render json: { success: false, errors: @list_shop.errors.full_messages }
     end
   end
-  
+
   def destroy
     shop_saved_list = current_user.shop_saved_lists.find_by(id: params[:id])
     shop = Shop.find(params[:shop_id])

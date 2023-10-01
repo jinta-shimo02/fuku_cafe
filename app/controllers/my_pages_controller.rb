@@ -4,7 +4,7 @@ class MyPagesController < ApplicationController
   def show
     @shop_saved_lists = current_user.shop_saved_lists
   end
-  
+
   def edit; end
 
   def update
@@ -21,7 +21,7 @@ class MyPagesController < ApplicationController
   def set_user
     @user = User.find(current_user.id)
   end
-  
+
   def user_params
     params.require(:user).permit(:name, :email)
   end

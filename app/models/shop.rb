@@ -18,5 +18,5 @@ class Shop < ApplicationRecord
 
   def clothes?
     type == "Clothes"
-  end 
+  end
 end

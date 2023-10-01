@@ -4,7 +4,6 @@ RSpec.describe "UserSessions", type: :system do
   let(:user) { create(:user) }
 
   describe 'ログイン' do
-
     describe 'ログイン前' do
       context 'フォームの入力が正常' do
         it 'ログイン成功' do
