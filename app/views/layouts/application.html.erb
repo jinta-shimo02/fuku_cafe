@@ -10,6 +10,9 @@
     <%= include_gon %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= display_meta_tags(default_meta_tags) %>
+    <% if Rails.env.production? %>
+      <%= render 'layouts/google_analytics' %>
+    <% end %>
     <%= turbo_frame_tag 'modal' %>
   </head>
 
