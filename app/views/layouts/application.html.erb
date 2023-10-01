@@ -10,9 +10,17 @@
     <%= include_gon %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= display_meta_tags(default_meta_tags) %>
-    <% if Rails.env.production? %>
-      <%= render 'layouts/google_analytics' %>
-    <% end %>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZEF5NW0K7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VZEF5NW0K7');
+    </script>
+
     <%= turbo_frame_tag 'modal' %>
   </head>
 
