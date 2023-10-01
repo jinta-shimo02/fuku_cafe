@@ -1,11 +1,10 @@
 require 'csv'
 require 'open-uri'
+API_KEY = ENV['API_KEY']
 
 namespace :Cafe do
   desc 'Fetch and save shop details'
   task :get_and_save_details => :environment do
-    API_KEY = ENV['API_KEY']
-
     def get_place_id(phone_number)
       client = GooglePlaces::Client.new(API_KEY)
       spot = client.spots_by_query(phone_number).first
@@ -38,7 +37,7 @@ namespace :Cafe do
 
         full_address = place_detail_data['result']['formatted_address']
         result[:address] = full_address.sub(/\A[^ ]+/, '')
-        
+
         result[:phone_number] = place_detail_data['result']['formatted_phone_number']
         result[:opening_hours] = place_detail_data['result']['opening_hours']['weekday_text'].join("\n") if place_detail_data['result']['opening_hours'].present?
         result[:latitude] = place_detail_data['result']['geometry']['location']['lat']
@@ -80,7 +79,7 @@ namespace :Cafe do
         puts "詳細データがありません"
         return nil
       end
-  end
+    end
 
     csv_file = 'lib/cafe.csv'
     CSV.foreach(csv_file, headers: true) do |row|
@@ -98,8 +97,8 @@ namespace :Cafe do
         photo_references.each do |photo|
           ShopImage.create!(shop: shop, image: photo)
         end
-          puts "ShopImageを保存しました: #{row['店名']}"
-          puts "----------"
+        puts "ShopImageを保存しました: #{row['店名']}"
+        puts "----------"
       else
         puts "ShopImageの保存に失敗しました: #{row['店名']}"
       end

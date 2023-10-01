@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :shop_saved_lists, dependent: :destroy
-         
+
   enum role: { general: 0, admin: 1 }
 
   validates :name, presence: true, length: { maximum: 255 }

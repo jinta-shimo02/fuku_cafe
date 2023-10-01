@@ -18,8 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_lists
-    if current_user
-      @shop_saved_lists = current_user.shop_saved_lists
-    end
+    return @shop_saved_lists = current_user.shop_saved_lists if current_user
   end
 end
