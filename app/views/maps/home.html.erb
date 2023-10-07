@@ -1,20 +1,20 @@
 <div class="grid place-items-center mt-10">
   <%= render 'maps/map' %>
-  <button id="maps_init" class="mt-5 py-3 px-3 text-center font-bold text-gray-600 rounded-full bg-yellow-400 w-40 hover:bg-gray-300">マップを初期化</button>
+  <button id="maps_init" class="mt-5 py-3 px-3 text-xs md:text-sm text-center font-bold text-gray-600 rounded-full bg-yellow-400 w-32 md:w-40 hover:bg-gray-300">マップを初期化</button>
   <div class="card w-11/12 bg-base-100 shadow-md z-0 mt-5 mb-10">
     <div class="card-body p-10">
       <div class="flex flex-col justify-center items-center h-full">
-        <h2 class="text-left text-3xl border-b border-gray-500 w-11/12 p-5">セレクトショップ</h2>
-          <div id="clothes-list" class="w-11/12">
-            <p class="text-2xl pt-5 text-center" id="no-clothes-shops">近くにショップはありません</p>
+        <h2 class="text-left text-lg md:text-3xl border-b border-gray-500 w-11/12 p-5">セレクトショップ</h2>
+          <div id="clothes-list">
+            <p class="text-base md:text-2xl pt-5 text-center" id="no-clothes-shops">近くにショップはありません</p>
           </div>
       </div>
     </div>
     <div class="card-body p-10">
       <div class="flex flex-col justify-center items-center h-full">
-        <h2 class="text-left text-3xl border-b border-gray-500 w-11/12 p-5">カフェ</h2>
-          <div id="cafes-list" class="w-11/12">
-            <p class="text-2xl py-5 text-center">近くにショップはありません</p>
+        <h2 class="text-left text-lg md:text-3xl border-b border-gray-500 w-11/12 p-5">カフェ</h2>
+          <div id="cafes-list">
+            <p class="text-base md:text-2xl py-5 text-center">近くにショップはありません</p>
           </div>
         </div>
       </div>

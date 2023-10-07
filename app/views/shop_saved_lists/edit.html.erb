@@ -2,10 +2,10 @@
   <%= form_with model: @shop_saved_list do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="flex justify-between">
-      <%= f.text_field :name, class: 'text-3xl input input-warning border-gray-800' %>
-      <div>
-        <%= f.submit class: 'btn btn-neutral' %>
-        <%= link_to 'キャンセル', @shop_saved_list, class: ' btn bg-gray-300' %>
+      <%= f.text_field :name, class: 'text-sm md:text-3xl input input-warning border-gray-800' %>
+      <div class="items-center">
+        <%= f.submit class: 'w-16 md:w-28 btn btn-sm md:btn-md btn-neutral' %>
+        <%= link_to 'キャンセル', @shop_saved_list, class: 'w-16 md:w-28 btn btn-sm md:btn-md bg-gray-300 text-xs' %>
       </div>
     </div>
   <% end %>

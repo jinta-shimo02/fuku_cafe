@@ -1,6 +1,6 @@
 <%= turbo_frame_tag shop_saved_list do %>
   <div class="flex items-center justify-between">
-    <p id="list_name" class="text-3xl"><%= shop_saved_list.name %></p>
-    <%= link_to "編集", edit_shop_saved_list_path(shop_saved_list), class: 'w-20 h-12 btn btn-neutral' %>
+    <p id="list_name" class="text-lg md:text-3xl"><%= shop_saved_list.name %></p>
+    <%= link_to "編集", edit_shop_saved_list_path(shop_saved_list), class: 'w-16 md:w-24 btn btn-sm md:btn-md btn-neutral' %>
   </div>
 <% end %>

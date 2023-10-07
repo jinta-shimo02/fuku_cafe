@@ -1,11 +1,11 @@
 <% flash.each do |key, value| %>
   <% if key == 'success' || key == 'notice' %>
-    <div class="flex items-center bg-green-400 text-white text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
+    <div class="flex items-center bg-green-400 text-white text-xs md:text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
   <% elsif key == 'info' %>
-    <div class="flex items-center bg-blue-400 text-white text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
+    <div class="flex items-center bg-blue-400 text-white text-xs md:text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
   <% elsif key == 'warning' %>
-    <div class="flex items-center bg-yellow-400 text-white text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
+    <div class="flex items-center bg-yellow-400 text-white text-xs md:text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
   <% else %>
-    <div class="flex items-center bg-red-400 text-white text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
+    <div class="flex items-center bg-red-400 text-white text-xs md:text-sm font-bold pl-10 py-5" role="alert"><%= value %></div>
   <% end %>
 <% end %>

@@ -1,30 +1,30 @@
 <div class="container mx-auto mb-20">
   <div class="px-5 border-opacity-50">
     <div class="grid place-items-center">
-      <h2 class="place-items-centeer my-6 text-2xl text-bold"><%= t('.sign_up') %></h2>
+      <h2 class="place-items-centeer my-6 text-lg md:text-2xl text-bold"><%= t('.sign_up') %></h2>
     </div>
     <div class="grid place-items-center">
       <%= form_with model: resource, url: registration_path(resource_name), class: 'w-full px-5 md:w-3/5 md:px-0',  local: true do |f| %>
         <%= render "users/shared/error_messages", resource: resource %>
 
         <div class="form-control">
-          <%= f.label :name, class: 'label-text text-xl' %>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: t('placeholders.name') %>
+          <%= f.label :name, class: 'label-text text-sm md:text-xl' %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50 text-sm md:text-xl', placeholder: t('placeholders.name') %>
         </div>
 
         <div class="form-control mt-5">
-          <%= f.label :email, class: 'label-text text-xl' %>
-          <%= f.email_field :email, autocomplete: "email", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: t('placeholders.email') %>
+          <%= f.label :email, class: 'label-text text-sm md:text-xl' %>
+          <%= f.email_field :email, autocomplete: "email", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50 text-sm md:text-xl', placeholder: t('placeholders.email') %>
         </div>
 
         <div class="form-control mt-5">
-          <%= f.label :password, class: 'label-text text-xl' %>
-          <%= f.password_field :password, autocomplete: "new-password", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: t('placeholders.password') %>
+          <%= f.label :password, class: 'label-text text-sm md:text-xl' %>
+          <%= f.password_field :password, autocomplete: "new-password", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50 text-sm md:text-xl', placeholder: t('placeholders.password') %>
         </div>
 
         <div class="form-control mt-5">
-          <%= f.label :password_confirmation, class: 'label-text text-xl' %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50', placeholder: t('placeholders.password_confirmation') %>
+          <%= f.label :password_confirmation, class: 'label-text text-sm md:text-xl' %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50 text-sm md:text-xl', placeholder: t('placeholders.password_confirmation') %>
         </div>
 
         <div class="actions">
@@ -32,8 +32,8 @@
         </div>
       <% end %>
     </div>
-    <div class="grid place-items-center">
-      <p class="text-base text-gray-500 mx-5 mt-5 md:w-3/5">ユーザーが本サービスへの登録申込をしたことをもって
+    <div class="text-sm md:text-xl grid place-items-center">
+      <p class="text-gray-500 mx-5 mt-5 md:w-3/5">ユーザーが本サービスへの登録申込をしたことをもって
       <%= link_to '利用規約', terms_path, class: 'link link-neutral' %>
       および
       <%= link_to 'プライバシーポリシー', privacy_policy_path, class: 'link link-neutral' %>

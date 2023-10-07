@@ -1,32 +1,32 @@
 <div class="grid place-items-center mb-20">
-  <div class="card w-4/5 bg-base-100 shadow-md z-0 m-20">
-    <div class="card-body border-b border-gray-500 p-14">
+  <div class="card w-11/12 md:w-4/5 bg-base-100 shadow-md z-0 m-20">
+    <div class="card-body border-b border-gray-500 p-10 md:p-14">
       <%= render "shop_saved_list", shop_saved_list: @shop_saved_list %>
     </div>
-    <div class="card-body border-b border-gray-500 p-10">
+    <div class="card-body p-10">
       <% @shop_saved_list.shops.each do |shop| %>
         <div class="card bg-base-200 border-gray-500 shadow-xl m-2">
           <div class="flex">
-            <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=<%= shop.shop_images[0].image %>&key=<%= ENV["API_KEY"] %>" class="p-5 w-48 h-48 rounded-3xl">
+            <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=<%= shop.shop_images[0].image %>&key=<%= ENV["API_KEY"] %>" class="p-3 md:p-5 w-20 h-20 md:w-48 md:h-48 rounded-3xl">
             <div class="flex-col">
               <ul>
-                <li class="pl-6 pt-6 text-3xl underline hover:text-yellow-500">
+                <li class="md:pl-4 pt-3 text-sm md:text-3xl underline hover:text-yellow-500">
                   <%= link_to shop.name, shop_path(shop) %>
                 </li>
-                <li class="pl-6 pt-4">
+                <li class="md:pl-4 pt-1.5 text-[1px] md:text-base">
                   <%= shop.address %>
                 </li>
-                <li class="pl-6 pt-1.5">
+                <li class="md:pl-4 pt-1.5 text-[1px] md:text-base">
                   <%= shop.phone_number %>
                 </li>
                 <a href="https://www.google.com/maps/search/?api=1&query=<%= shop.name %>&query_place_id=<%= shop.place_id %>" target="_blank" rel="noopener noreferrer">
-              <li class="mt-1.5 py-3 px-3 text-center rounded-full bg-blue-500 text-white font-bold w-48 hover:bg-gray-300">
+              <li class="mt-1.5 py-3 px-3 text-center rounded-full bg-blue-500 text-white font-bold w-48 hidden md:block hover:bg-gray-300">
                 <i class="fa-solid fa-location-dot"></i>
                 GoogleMapで見る
               </li>
               </a>
             </div>
-            <%= link_to "削除", shop_list_shop_path(shop_id: shop),  data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"  }, class: 'w-20 h12 rounded-xl ml-auto mr-10 mt-32 m-5 btn bg-red-400 text-white' %>
+            <%= link_to "削除", shop_list_shop_path(shop_id: shop),  data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"  }, class: 'w-16 ml-auto mt-auto m-5 btn btn-sm md:btn-md bg-red-400 text-white' %>
           </div>
         </div>
       <% end %>
