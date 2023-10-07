@@ -43,12 +43,12 @@
     <div class="drawer-side z-10">
       <label for="my-drawer-4" class="drawer-overlay"></label>
       <ul class="menu p-4 w-80 h-full bg-yellow-50 text-base-content">
-        <%= link_to t('defaults.maps'), home_path, class: 'pl-1 mt-10 text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
+        <%= link_to t('defaults.maps'), home_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
         <% if current_user %>
-        <%= link_to t('defaults.mypage'), my_page_path, class: 'pl-1 mt-10 text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
-          <li class='pl-1 mt-10 text-sm border-b border-gray-500 pb-2'><%= t('defaults.shop_saved_list') %></li>
+        <%= link_to t('defaults.mypage'), my_page_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
+          <li class='pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2'><%= t('defaults.shop_saved_list') %></li>
           <% @shop_saved_lists.each do |list| %>
-            <%= link_to list.name, shop_saved_list_path(list), class: 'pl-7 mt-5 border-b border-gray-300 pb-2 hover:text-yellow-500' %>
+            <%= link_to list.name, shop_saved_list_path(list), class: 'pl-7 mt-5 text-xs md:text-sm border-b border-gray-300 pb-2 hover:text-yellow-500' %>
           <% end %>
         <% end %>
       </ul>
