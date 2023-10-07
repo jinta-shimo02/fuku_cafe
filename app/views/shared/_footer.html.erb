@@ -1,13 +1,12 @@
-<footer class="footer items-center p-4 bg-gray-100 text-neutral-content justify-between pb-5">
-  <div class="items-center grid-flow-col">
-    <%= image_tag 'logo.png', class: 'rounded-full h-16 w-16 ml-5 mr-2' %>
-    <p class="text-gray-900">© 2023 - All right reserved</p>
+<footer class="footer flex items-center p-8 bg-gray-100 text-neutral-content justify-between">
+  <div class="items-center">
+    <p class="text-xs md:text-sm text-gray-900">© 2023 - All right reserved</p>
   </div> 
   <div class="flex">
-    <%= link_to t('defaults.privacy_policy'), privacy_policy_path, class: 'mr-5 text-gray-900 hover:text-yellow-500' %>
-    <%= link_to t('defaults.terms'), terms_path, class: 'mr-5 text-gray-900 hover:text-yellow-500' %>
+    <%= link_to t('defaults.privacy_policy'), privacy_policy_path, class: 'mr-5 text-xs md:text-sm text-gray-900 hover:text-yellow-500' %>
+    <%= link_to t('defaults.terms'), terms_path, class: 'mr-5 text-xs md:text-sm text-gray-900 hover:text-yellow-500' %>
     <a href="https://twitter.com/jin_XXX222" target="_blank" rel="noopener noreferrer">
-      <%= image_tag 'x_logo.png', size: "20x20", class: 'hover:underline cursor-pointer' %>
+      <%= image_tag 'x_logo.png', class: 'w-4 h-4 md:w-5 md:h-5 hover:underline cursor-pointer' %>
     </a>
   </div>
 </footer>
