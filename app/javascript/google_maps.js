@@ -147,8 +147,8 @@ function updateShopList(type, shops) {
           <div class="flex-col">
             <ul>
               <li class="md:pl-4 mt-3 md:pt-3 text-sm md:text-3xl underline hover:text-yellow-500"><a href="/shops/${shop.id}">${shop.name}</a></li>
-              <li class="md:pl-4 mt-1.5 md:pt-2 text-xs md:text-base">${shop.address}</li>
-              <li class="md:pl-4 pt-1.5 pb-1 text-sm md:text-base">${shop.phone_number}</li>
+              <li class="md:pl-4 mt-1.5 md:pt-2 text-[1px] md:text-base">${shop.address}</li>
+              <li class="md:pl-4 pt-1.5 pb-1 text-[1px] md:text-base">${shop.phone_number}</li>
               <a href="https://www.google.com/maps/search/?api=1&query=${shop.name}&query_place_id=${shop.place_id}" target=_"blank" rel="noopener noreferrer">
               <li class="mb-1.5 py-3 px-3 text-sm md:text-base text-center rounded-full bg-blue-500 text-white font-bold w-24 md:w-48 hidden md:block hover:bg-gray-300">
                 <i class="fa-solid fa-location-dot"></i>

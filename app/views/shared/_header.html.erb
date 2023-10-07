@@ -32,9 +32,9 @@
       </div>
     <% end %>
     <% if user_signed_in? %>  
-      <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'text-xs md:text-sm mr-5 btn btn-neutral' %>
+      <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'text-xs md:text-sm mr-5 btn btn-sm md:btn-md btn-neutral' %>
     <% else %>
-      <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'text-xs md:text-sm mr-5 btn btn-neutral' %>
+      <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'text-xs md:text-sm mr-5 btn btn-sm md:btn-md btn-neutral' %>
     <% end %>
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
     <label for="my-drawer-4" class="drawer-button">

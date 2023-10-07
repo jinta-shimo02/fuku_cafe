@@ -1,26 +1,26 @@
 <div class="grid place-items-center mb-20">
-  <h1 class="text-3xl m-10"><%= t('defaults.my_page') %></h1>
-  <div class="card w-4/5 bg-base-100 shadow-md z-0">
+  <h1 class="text-lg md:text-2xl m-10"><%= t('defaults.my_page') %></h1>
+  <div class="card w-11/12 md:w-4/5 bg-base-100 shadow-md z-0">
     <div class="card-body border-b border-gray-500 p-10">
       <div class="flex justify-evenly items-center">
-        <%= image_tag 'logo.png', class: 'w-48 h-48' %>
+        <%= image_tag 'logo.png', class: 'w-32 h-32 md:w-48 md:h-48' %>
         <div class="flex flex-col">
           <p class="mb-10 text-center"><%= @user.name %></p>
-          <%= link_to '編集', edit_my_page_path, class: 'btn btn-neutral' %>
+          <%= link_to '編集', edit_my_page_path, class: 'w-16 btn btn-sm md:btn-md btn-neutral' %>
         </div>
       </div>
     </div>
     <div class="card-body border-b border-gray-500 p-10">
       <div class="flex justify-center items-center h-full">
-        <div class="card w-11/12 bg-base-200 border-gray-500 shadow-xl">
+        <div class="card w-full md:w-11/12 bg-base-200 border-gray-500 shadow-xl">
           <div class="border-b border-gray-500 p-5">
-            <h2 class="text-xl"><%= t('defaults.shop_saved_list')%></h3>
+            <h2 class="text-base md:text-xl"><%= t('defaults.shop_saved_list')%></h3>
           </div>
-          <div class="card-body p-5">
+          <div class="card-body p-2 md:p-5">
             <% @shop_saved_lists.each do |list| %>
               <div class="flex justify-between border-b border-gray-500">
-                <%= link_to list.name, shop_saved_list_path(list), class: 'text-left border-b p-3 hover:text-yellow-500'%>
-                <%= link_to '削除', shop_saved_list_path(list), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn bg-red-400 mb-1 text-white' %>
+                <%= link_to list.name, shop_saved_list_path(list), class: 'text-sm md:text-base text-left border-b p-3 hover:text-yellow-500'%>
+                <%= link_to '削除', shop_saved_list_path(list), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'w-16 btn btn-sm md:btn-md bg-red-400 text-white my-2' %>
               </div>
             <% end %>
           </div>
@@ -29,7 +29,7 @@
     </div>
     <div class="card-body p-10">
       <div class="flex flex-col justify-center items-center h-full">
-        <h2 class="text-left text-xl border-b border-gray-500 w-11/12 p-5">レビューしたショップ（まだ機能していません）</h2>
+        <h2 class="text-left text-base md:text-xl border-b border-gray-500 w-11/12 p-5">レビューしたショップ（まだ機能していません）</h2>
         <div class="card w-11/12 bg-base-200 border-gray-500 shadow-md m-2">
           <p class="p-7">ショップ情報</p>
         </div>

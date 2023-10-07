@@ -1,40 +1,40 @@
 <div class="grid place-items-center">
-  <div class="card w-4/5 bg-base-100 shadow-md z-0 rounded-3xl my-20">
-    <div class="card-body pt-20">
-      <p class="text-2xl underline pl-10"><%= @shop.name %></p>
-      <p class="pl-20 mt-4 text-lg">住　　所：<%= @shop.address %></p>
+  <div class="card w-11/12 md:w-4/5 bg-base-100 shadow-md z-0 rounded-3xl my-20">
+    <div class="card-body pt-10 md:pt-20">
+      <p class="text-base md:text-2xl underline pl-5 md:pl-10"><%= @shop.name %></p>
+      <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">住　　所：<%= @shop.address %></p>
       <div class="flex">
-        <div class="pl-20 mt-4 text-lg">営業時間：</div>
-        <span class="mt-4"><%= raw @shop.opening_hours.gsub(/(～\d+時\d+分|定休日)/, "\\1<br>") %></span>
+        <div class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">営業時間：</div>
+        <span class="text-[1px] md:text-lg mt-4"><%= raw @shop.opening_hours.gsub(/(～\d+時\d+分|定休日)/, "\\1<br>") %></span>
       </div>
-      <p class="pl-20 mt-4 text-lg">電話番号：<%= @shop.phone_number %></p>
-      <p class="pl-20 mt-4 text-lg">公式サイト：
-        <span class="text-blue-500 hover:text-yellow-500">
+      <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">電話番号：<%= @shop.phone_number %></p>
+      <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">公式サイト：
+        <span class="text-[1px] md:text-lg text-blue-500 hover:text-yellow-500">
           <%= @shop.web_site.present? ? link_to(@shop.web_site.chomp('/'), @shop.web_site.chomp('/'), target: :_brank) : 'サイトがありません' %>
         </span>
       </p>
       <% if @shop.clothes? %>
-        <p class="pl-20 mt-4 text-lg">取扱ブランド</p>
+        <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">取扱ブランド</p>
         <% @shop.brands.each do |brand| %>
-         <p class="text-lg text-center"><%= brand.name %></p>
+         <p class="text-[1px] md:text-lg text-center"><%= brand.name %></p>
         <% end %>
       <% end %>
-      <p class="pl-20 mt-4 text-lg">ギャラリー</p>
+      <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">ギャラリー</p>
       <div class="flex overflow-x-hidden">
         <% @shop_images.each do |shop_image| %>
-          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 rounded-xl w-32 h-32">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 rounded-xl w-12 h-12 md:w-32 md:h-32">
         <% end %>
       </div>
     </div>
     <div class="card-body border-t border-gray-500 p-10">
       <div class="flex justify-center items-center h-full">
         <div class="card w-full bg-base-200 shadow-xl">
-          <p class="pl-10 py-10 text-lg">レビュー</p>
+          <p class="pl-10 py-10 text-sm md:text-lg">レビュー</p>
           <div class="flex">
-              <p class="text-2xl font-bold  text-center">まだ機能していません</p>
+              <p class="text-xs md:text-2xl font-bold text-center">まだ機能していません</p>
           </div>
           <div class="flex justify-end mx-10 mt-10 mb-5">
-            <%= link_to 'レビューを書く', '#', class: 'btn btn-neutral w-48 h-10 ' %>
+            <%= link_to 'レビューを書く', '#', class: 'btn btn-sm md:btn-md btn-neutral' %>
           </div>
         </div>
       </div>
