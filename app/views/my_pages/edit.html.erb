@@ -1,17 +1,17 @@
 <div class="container mx-auto mb-20">
   <div class="px-5 border-opacity-50">
     <div class="grid place-items-center">
-      <h2 class="place-items-centeer my-6 text-2xl text-bold"><%= t('defaults.profile_edit') %></h2>
+      <h2 class="place-items-centeer my-6 text-lg md:text-2xl text-bold"><%= t('defaults.profile_edit') %></h2>
     </div>
     <div class="grid place-items-center">
       <%= form_with model: @user, url: my_page_path, class: 'w-full px-5 md:w-3/5 md:px-0', local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <div class="form-control">
-          <%= f.label :name, class: 'label-text text-xl' %>
+          <%= f.label :name, class: 'label-text text-sm md:text-xl' %>
           <%= f.text_field :name, class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50' %>
         </div>
         <div class="form-control mt-5">
-          <%= f.label :email, class: 'label-text text-xl' %>
+          <%= f.label :email, class: 'label-text text-sm md:text-xl' %>
           <%= f.email_field :email, class: 'input input-warning border-gray-800 border-opacity-50 bg-yellow-50' %>
         </div>
         <div class="actions">
