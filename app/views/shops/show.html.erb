@@ -2,24 +2,24 @@
   <div class="card w-11/12 md:w-4/5 bg-base-100 shadow-md z-0 rounded-3xl my-20">
     <div class="card-body pt-10 md:pt-20">
       <p class="text-base md:text-2xl underline pl-5 md:pl-10"><%= @shop.name %></p>
-      <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">住　　所：<%= @shop.address %></p>
+      <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">住　　所：<%= @shop.address %></p>
       <div class="flex">
-        <div class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">営業時間：</div>
-        <span class="text-[1px] md:text-lg mt-4"><%= raw @shop.opening_hours.gsub(/(～\d+時\d+分|定休日)/, "\\1<br>") %></span>
+        <div class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">営業時間：</div>
+        <span class="text-[10px] md:text-lg mt-4"><%= raw @shop.opening_hours.gsub(/(～\d+時\d+分|定休日)/, "\\1<br>") %></span>
       </div>
-      <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">電話番号：<%= @shop.phone_number %></p>
-      <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">公式サイト：
-        <span class="text-[1px] md:text-lg text-blue-500 hover:text-yellow-500">
+      <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">電話番号：<%= @shop.phone_number %></p>
+      <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">公式サイト：
+        <span class="text-[10px] md:text-lg text-blue-500 hover:text-yellow-500">
           <%= @shop.web_site.present? ? link_to(@shop.web_site.chomp('/'), @shop.web_site.chomp('/'), target: :_brank) : 'サイトがありません' %>
         </span>
       </p>
       <% if @shop.clothes? %>
-        <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">取扱ブランド</p>
+        <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">取扱ブランド</p>
         <% @shop.brands.each do |brand| %>
-         <p class="text-[1px] md:text-lg text-center"><%= brand.name %></p>
+         <p class="text-[10px] md:text-lg text-center"><%= brand.name %></p>
         <% end %>
       <% end %>
-      <p class="pl-10 md:pl-20 mt-4 text-[1px] md:text-lg">ギャラリー</p>
+      <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">ギャラリー</p>
       <div class="flex overflow-x-hidden">
         <% @shop_images.each do |shop_image| %>
           <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 rounded-xl w-12 h-12 md:w-32 md:h-32">
