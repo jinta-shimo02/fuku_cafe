@@ -1,15 +1,15 @@
 <%= turbo_frame_tag "modal" do %>
   <div id="myModal" class="fixed inset-0 flex items-center justify-center z-50 bg-gray-500 bg-opacity-50" data-controller="modal" data-modal-target="myModal">
-    <div class="modal-content bg-white rounded-xl shadow-lg p-10 w-[450px]">
-      <h2 class="text-lg font-semibold mb-6">リストへ保存</h2>
+    <div class="modal-content bg-white rounded-xl shadow-lg p-10 w-80 md:w-[450px]">
+      <h2 class="text-base md:text-lg font-semibold mb-6">リストへ保存</h2>
       <% @shop_saved_lists.each do |list| %>
         <div class="flex justify-center mb-5 border-b pb-2 list-button" data-action="click->modal#close" data-list-id="<%= list.id %>">
-        <button class="hover:text-yellow-500"><%= list.name %></button>
+        <button class="text-xs md:text-base hover:text-yellow-500"><%= list.name %></button>
         </div>
       <% end %>
       <div class="flex justify-center border-b pb-2 hover:text-yellow-500">
-        <i class="fa-solid fa-plus mt-1 mr-2"></i>
-        <%= link_to "リストを作成", new_shop_saved_list_path, data: { turbo_frame: 'modal' }, class: 'text-center' %>
+        <i class="fa-solid fa-plus md:mt-1 mr-2"></i>
+        <%= link_to "リストを作成", new_shop_saved_list_path, data: { turbo_frame: 'modal' }, class: 'text-xs md:text-base text-center' %>
       </div>
     </div>
   </div>
