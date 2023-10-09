@@ -1,5 +1,6 @@
+<input id="pac-input" class="border-2 border-yellow-300 rounded-full py-2 px-1 md:px-4 mt-2 ml-2 text-center text-xs md:text-base" placeholder="ピンの位置を移動">
 <div id="map" class="w-11/12 h-72 md:h-96 rounded-xl"></div>
 
 <%= javascript_include_tag "google_maps" %>
 
-<script defer="defer" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_API_KEY'] %>&callback=initMap" ></script>
+<script defer="defer" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_API_KEY'] %>&libraries=places&callback=initMap" ></script>

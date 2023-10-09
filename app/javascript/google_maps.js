@@ -55,6 +55,26 @@ function initMap() {
     fillOpacity: 0.35,
   });
 
+  var input = document.getElementById('pac-input');
+  var searchBox = new google.maps.places.SearchBox(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  
+  searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
+    if (places.length == 0) {
+      return;
+    }
+
+    var place = places[0];
+    lat = place.geometry.location.lat();
+    lng = place.geometry.location.lng();
+
+    pin.setPosition(new google.maps.LatLng(lat, lng));
+
+    circle.setCenter(new google.maps.LatLng(lat, lng));
+
+    map.setCenter(new google.maps.LatLng(lat, lng));
+  });
   
   document.getElementById('search-clothes-button').addEventListener('click', function () {
     currentFilter = 'clothes';
