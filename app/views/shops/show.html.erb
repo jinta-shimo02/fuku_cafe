@@ -1,7 +1,7 @@
 <div class="grid place-items-center">
   <div class="card w-11/12 md:w-4/5 bg-base-100 shadow-md z-0 rounded-3xl my-20">
     <div class="card-body pt-10 md:pt-20">
-      <div class="flex" data_controller="modal">
+      <div class="flex" data-controller="modal">
         <p class="text-base md:text-2xl underline pl-5 md:pl-10"><%= @shop.name %></p>
         <% if user_signed_in? %>
           <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-5 md:mr-10 m-5 bookmark-icon" data-shop-id="<%= @shop.id %>">
