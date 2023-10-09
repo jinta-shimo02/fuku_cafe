@@ -186,7 +186,7 @@ function addMarkers(shops, type) {
     });
 
     const infowindow = new google.maps.InfoWindow({
-      content: '<div><strong>' + shops[i].name + '</strong></div>'
+      content: '<div class="hover:text-yellow-500"><a href="/shops/' + shops[i].id + '">' + shops[i].name + '</a></div>'
     });
 
     marker.addListener('click', function() {
