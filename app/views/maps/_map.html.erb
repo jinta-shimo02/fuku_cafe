@@ -1,3 +1,5 @@
 <div id="map" class="w-11/12 h-72 md:h-96 rounded-xl"></div>
 
+<%= javascript_include_tag "google_maps" %>
+
 <script defer="defer" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_API_KEY'] %>&callback=initMap" ></script>
