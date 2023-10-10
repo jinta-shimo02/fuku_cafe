@@ -6,6 +6,7 @@ class User < ApplicationRecord
   after_create :create_initial_list
 
   has_many :shop_saved_lists, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   enum role: { general: 0, admin: 1 }
 
