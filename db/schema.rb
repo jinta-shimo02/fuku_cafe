@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_140246) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_10_122620) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_140246) do
     t.index ["shop_id"], name: "index_list_shops_on_shop_id"
     t.index ["shop_saved_list_id", "shop_id"], name: "index_list_shops_on_shop_saved_list_id_and_shop_id", unique: true
     t.index ["shop_saved_list_id"], name: "index_list_shops_on_shop_saved_list_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_reviews_on_shop_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "shop_brands", force: :cascade do |t|
@@ -87,6 +98,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_140246) do
 
   add_foreign_key "list_shops", "shop_saved_lists"
   add_foreign_key "list_shops", "shops"
+  add_foreign_key "reviews", "shops"
+  add_foreign_key "reviews", "users"
   add_foreign_key "shop_brands", "brands"
   add_foreign_key "shop_brands", "shops"
   add_foreign_key "shop_images", "shops"
