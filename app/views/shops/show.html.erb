@@ -42,9 +42,11 @@
                   <%= render @reviews %>
                 <% end %>
               </div>
-              <div class="flex justify-end mx-10 mt-10 mb-5">
-                <%= link_to 'レビューを書く', new_shop_review_path(@shop), class: 'btn btn-sm md:btn-md btn-neutral', data: { turbo_frame: 'review_modal' } %>
-              </div>
+              <% if user_signed_in? %>
+                <div class="flex justify-end mx-10 mt-10 mb-5">
+                  <%= link_to 'レビューを書く', new_shop_review_path(@shop), class: 'btn btn-sm md:btn-md btn-neutral', data: { turbo_frame: 'review_modal' } %>
+                </div>
+              <% end %>
           </div>
         </div>
       </div>

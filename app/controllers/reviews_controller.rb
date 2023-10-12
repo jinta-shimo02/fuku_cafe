@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_shop, only: %i[new create]
-  before_action :set_review, only: %i[edit update]
+  before_action :set_review, only: %i[edit update destroy]
+
   def new
     @review = Review.new
   end
@@ -31,6 +32,16 @@ class ReviewsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @review.destroy!
+    flash.now.notice = "レビューを削除しました"
+    render turbo_stream: [
+      turbo_stream.remove(@review),
+      turbo_stream.update("flash", partial: "shared/flash")
+    ]
+  end
+
   private
 
   def review_params
