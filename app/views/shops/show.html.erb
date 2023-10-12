@@ -29,22 +29,24 @@
       <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">ギャラリー</p>
       <div class="flex overflow-x-hidden">
         <% @shop_images.each do |shop_image| %>
-          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 rounded-xl w-12 h-12 md:w-32 md:h-32">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KE'] %>" class="mx-2 rounded-xl w-12 h-12 md:w-32 md:h-32">
         <% end %>
       </div>
     </div>
-    <div class="card-body border-t border-gray-500 p-10">
-      <div class="flex justify-center items-center h-full">
-        <div class="card w-full bg-base-200 shadow-xl">
-          <p class="pl-10 py-10 text-sm md:text-lg">レビュー</p>
-          <div class="flex">
-              <p class="text-xs md:text-2xl font-bold text-center">まだ機能していません</p>
-          </div>
-          <div class="flex justify-end mx-10 mt-10 mb-5">
-            <%= link_to 'レビューを書く', '#', class: 'btn btn-sm md:btn-md btn-neutral' %>
+      <div class="card-body border-t border-gray-500 p-10">
+        <div class="flex justify-center items-center h-full">
+          <div class="card w-full bg-base-200 shadow-xl">
+            <p class="pl-10 py-7 text-sm md:text-lg border-b border-gray-500">レビュー</p>
+              <div id="reviews">
+                <%= turbo_frame_tag 'review_modal' do %>
+                  <%= render @reviews %>
+                <% end %>
+              </div>
+              <div class="flex justify-end mx-10 mt-10 mb-5">
+                <%= link_to 'レビューを書く', new_shop_review_path(@shop), class: 'btn btn-sm md:btn-md btn-neutral', data: { turbo_frame: 'review_modal' } %>
+              </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
 </div>

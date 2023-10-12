@@ -14,8 +14,9 @@ ja:
     shop_saved_list: '保存リスト'
     my_page: 'マイページ'
     profile_edit: 'プロフィール編集'
-
     message:
       updated: '更新しました'
       update_failed: '更新に失敗しました'
-
+  time:
+    formats:
+      simple: "%Y/%m/%d %H:%M"

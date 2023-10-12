@@ -21,6 +21,9 @@ ja:
         name: 'ブランド名'
       shop_saved_list:
         name: 'リスト名'
+      review:
+        rating: '評価'
+        content: '内容'
   enums:
     user:
       role:
