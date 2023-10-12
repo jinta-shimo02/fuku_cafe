@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :shops, only: %i[show] do 
     resources :list_shops, only: %i[create destroy]
-    resources :reviews, only: %i[new create destroy], shallow: true
+    resources :reviews, only: %i[new create destroy edit update], shallow: true
   end
   resources :shop_saved_lists
 end
