@@ -36,14 +36,14 @@
       <div class="card-body border-t border-gray-500 p-10">
         <div class="flex justify-center items-center h-full">
           <div class="card w-full bg-base-200 shadow-xl">
-            <p class="pl-10 py-7 text-sm md:text-lg border-b border-gray-500">レビュー</p>
+            <p class="pl-10 py-4 md:py-7 text-sm md:text-lg border-b border-gray-500">レビュー</p>
               <div id="reviews">
                 <%= turbo_frame_tag 'review_modal' do %>
                   <%= render @reviews %>
                 <% end %>
               </div>
               <% if user_signed_in? %>
-                <div class="flex justify-end mx-10 mt-10 mb-5">
+                <div class="flex justify-end mx-10 mt-5 md:mt-10 mb-5">
                   <%= link_to 'レビューを書く', new_shop_review_path(@shop), class: 'btn btn-sm md:btn-md btn-neutral', data: { turbo_frame: 'review_modal' } %>
                 </div>
               <% end %>

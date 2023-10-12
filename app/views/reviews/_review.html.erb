@@ -3,8 +3,8 @@
     <div class="flex mx-2 items-center">      
       <%= image_tag 'logo.png', class: 'w-9 h-9 rounded-full' %>
       <div class="ml-2 text-sm flex flex-col">
-        <p><%= review.user.name %></p>
-        <p class="text-gray-500"><%= l review.created_at, format: :simple %></p>
+        <p class="text-[10px] md:text-sm"><%= review.user.name %></p>
+        <p class="text-[10px] md:text-sm text-gray-500"><%= l review.created_at, format: :simple %></p>
       </div>
       <% if user_signed_in? %>
         <% if current_user.own?(review) %>
@@ -17,9 +17,9 @@
     <div class="flex flex-col mt-1.5 mb-1.5 p-2 mx-2 border rounded-lg border-gray-300">
       <div class="flex items-center mb-2">
         <i class="fa-solid fa-star text-yellow-500 mr-2"></i>
-        <p class="text-sm"><%= review.rating_as_number %></p>
+        <p class="text-[10px] md:text-sm"><%= review.rating_as_number %></p>
       </div>
-      <p class="text-sm"><%= review.content %></p>
+      <p class="text-[10px] md:text-sm"><%= review.content %></p>
     </div>
   </div>
 <% end %>
