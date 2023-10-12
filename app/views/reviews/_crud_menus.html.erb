@@ -1,0 +1,6 @@
+<%= link_to edit_review_path(review), data: { turbo_frame: 'review_modal' } do %>
+  <i class="fa-solid fa-pencil text-blue-500 mr-2"></i>
+<% end %>
+<%= link_to review, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
+  <i class="fa-solid fa-trash text-blue-500"></i>
+<% end %>

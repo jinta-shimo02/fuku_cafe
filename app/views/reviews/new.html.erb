@@ -1,0 +1,20 @@
+<%= turbo_frame_tag 'review_modal' do %>
+  <div class="fixed inset-0 flex items-center justify-center z-50 bg-gray-500 bg-opacity-50" data-controller="review-modal" data-review-modal-target="reviewModal">
+    <div class="modal-content bg-white rounded-xl shadow-lg p-10 w-18 md: w-[450px]">
+      <%= form_with model: @review, url: shop_reviews_path(@shop), data: { action: "turbo:submit-end->review-modal#close" }, method: :post do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="max-w-lg mx-auto p-2 md:p-6 bg-white rounded-xl space-y-2 md:space-y-4">
+          <%= f.label :rating, class: 'block font-medium text-sm text-gray-700' %>
+          <%= f.select :rating, Review.ratings.invert, class: 'rounded-xl p-2 border border-gray-300' %>
+
+          <div class="form-control">
+            <%= f.label :content, class: 'block font-medium text-sm text-gray-700' %>
+            <%= f.text_area :content, class: 'w-full rounded-xl p-2 border border-gray-300' %>
+          </div>
+
+          <%= f.submit '投稿する', class: 'w-full py-2 px-4 bg-yellow-500 text-white rounded-xl hover:bg-yellow-600 focus:outline-none focus:ring focus:ring-yellow-200' %>
+        </div>
+      <% end %>      
+    </div>
+  </div>
+<% end %>

@@ -10,6 +10,7 @@ class Shop < ApplicationRecord
   has_many :brands, through: :shop_brands
   has_many :list_shops, dependent: :destroy
   has_many :shop_saved_lists, through: :list_shops
+  has_many :reviews, dependent: :destroy
 
   validates :name, presence: true
   validates :latitude, presence: true
