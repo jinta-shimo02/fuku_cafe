@@ -42,6 +42,11 @@
                   <%= render @reviews %>
                 <% end %>
               </div>
+              <div class="text-center text-xs md:text-sm mt-5">
+                <%= turbo_frame_tag 'more_link' do %>
+                  <%= render 'reviews/more_link' %>
+                <% end %>
+              </div>
               <% if user_signed_in? %>
                 <div class="flex justify-end mx-10 mt-5 md:mt-10 mb-5">
                   <%= link_to 'レビューを書く', new_shop_review_path(@shop), class: 'btn btn-sm md:btn-md btn-neutral', data: { turbo_frame: 'review_modal' } %>

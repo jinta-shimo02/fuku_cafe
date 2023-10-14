@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_shop, only: %i[new create]
+  before_action :set_shop, only: %i[new create more]
   before_action :set_review, only: %i[edit update destroy]
 
   def new
@@ -39,6 +39,14 @@ class ReviewsController < ApplicationController
     render turbo_stream: [
       turbo_stream.remove(@review),
       turbo_stream.update("flash", partial: "shared/flash")
+    ]
+  end
+
+  def more
+    @reviews = @shop.reviews.includes(:user).order(created_at: :desc).page(params[:page]).per(3)
+    render turbo_stream: [
+      turbo_stream.append("reviews", partial: "review", collection: @reviews),
+      turbo_stream.update("more_link", partial: "more_link")
     ]
   end
 
