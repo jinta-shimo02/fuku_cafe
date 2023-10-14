@@ -75,6 +75,33 @@ function initMap() {
 
     map.setCenter(new google.maps.LatLng(lat, lng));
   });
+
+  var currentLocationButton = document.createElement('button');
+  currentLocationButton.textContent = "現在地へ移動";
+  currentLocationButton.className = "border-2 rounded-full border-orange-400 bg-orange-400 py-2 px-4 md:px-8 mt-2 mr-2 text-center text-xs md:text-base text-white font-bold hover:bg-orange-600";
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocationButton);
+
+  currentLocationButton.addEventListener('click', function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          lat = position.coords.latitude
+          lng = position.coords.longitude
+
+          pin.setPosition(new google.maps.LatLng(lat, lng));
+
+          circle.setCenter(new google.maps.LatLng(lat, lng));
+
+          map.setCenter(new google.maps.LatLng(lat, lng));
+        },
+        () => {
+          handleLocationError(true, map.getCenter());
+        }
+      );
+    } else {
+      handleLocationError(false, map.getCenter());
+    }
+  });
   
   document.getElementById('search-clothes-button').addEventListener('click', function () {
     currentFilter = 'clothes';
