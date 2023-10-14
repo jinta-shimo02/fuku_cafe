@@ -1,0 +1,3 @@
+<% if @reviews.next_page %>
+  <%= link_to 'さらに表示', more_shop_reviews_path(@shop, page: @reviews.next_page), class: 'border rounded-full bg-yellow-500 text-white py-1 px-5 hover:bg-yellow-600' %>
+<% end %>
