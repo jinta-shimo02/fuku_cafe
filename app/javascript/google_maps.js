@@ -9,6 +9,7 @@ var API_KEY = gon.api_key;
 var currentFilter = 'all';
 var maxMarkers = 10;
 var brandName;
+var infoWindow;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -76,6 +77,7 @@ function initMap() {
     map.setCenter(new google.maps.LatLng(lat, lng));
   });
 
+  infoWindow = new google.maps.InfoWindow();
   var currentLocationButton = document.createElement('button');
   currentLocationButton.textContent = "現在地へ移動";
   currentLocationButton.className = "border-2 rounded-full border-orange-400 bg-orange-400 py-2 px-4 md:px-8 mt-2 mr-2 text-center text-xs md:text-base text-white font-bold hover:bg-orange-600";
@@ -93,13 +95,17 @@ function initMap() {
           circle.setCenter(new google.maps.LatLng(lat, lng));
 
           map.setCenter(new google.maps.LatLng(lat, lng));
+
+          infoWindow.setPosition(new google.maps.LatLng(lat, lng));
+          infoWindow.setContent("現在地を取得しました");
+          infoWindow.open(map);
         },
         () => {
-          handleLocationError(true, map.getCenter());
+          handleLocationError(true, infoWindow, map.getCenter());
         }
       );
     } else {
-      handleLocationError(false, map.getCenter());
+      handleLocationError(false, infoWindow, map.getCenter());
     }
   });
   
@@ -249,4 +255,14 @@ function clearMarkers() {
   cafesMarker.forEach(marker => marker.setMap(null));
   clothesMarker = [];
   cafesMarker = [];
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, lat, lng) {
+  infoWindow.setPosition(new google.maps.LatLng(lat, lng));
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "現在地を取得できませんでした"
+      : "お使いのブラウザではサポートされていません"
+  );
+  infoWindow.open(map);
 }
