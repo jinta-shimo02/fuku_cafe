@@ -29,7 +29,7 @@
       <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">ギャラリー</p>
       <div class="flex overflow-x-hidden">
         <% @shop_images.each do |shop_image| %>
-          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KE'] %>" class="mx-2 rounded-xl w-12 h-12 md:w-32 md:h-32">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 rounded-xl w-12 h-12 md:w-32 md:h-32">
         <% end %>
       </div>
     </div>

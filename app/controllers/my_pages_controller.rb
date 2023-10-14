@@ -3,6 +3,7 @@ class MyPagesController < ApplicationController
 
   def show
     @shop_saved_lists = current_user.shop_saved_lists
+    @reviews = current_user.reviews.includes(:shop).order(created_at: :desc)
   end
 
   def edit; end
