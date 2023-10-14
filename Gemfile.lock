@@ -364,6 +364,7 @@ DEPENDENCIES
   google_places
   jbuilder
   jsbundling-rails
+  kaminari
   meta-tags
   pg (~> 1.1)
   pry-rails
