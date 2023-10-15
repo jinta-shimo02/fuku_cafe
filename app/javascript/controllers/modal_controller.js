@@ -42,13 +42,14 @@ export default class extends Controller {
       })
       .then(data => {
         if (data.success) {
-          alert(`${data.name}に保存しました`);
+          this.setFlashMessage("success", `${data.name}へ保存しました`);
         } else {
-          alert('すでに保存しています');
+          this.setFlashMessage("error", `すでに保存しています`);
         }
       })
       .catch(error => {
         console.error("リクエストエラー", error);
+        this.setFlashMessage("error", "リクエストエラーが発生しました");
       });
     }
     this.myModalTarget.classList.add("hidden");
@@ -62,5 +63,27 @@ export default class extends Controller {
     // クリックされたブックマークボタンから data-shop-id を取得
     const clickedButton = event.currentTarget;
     shopId = clickedButton.getAttribute("data-shop-id"); // グローバル変数に代入
-  } 
+  }
+
+  setFlashMessage(type, message) {
+    const flashContainer = document.createElement("div");
+    flashContainer.classList.add("flex", "items-center", "text-white", "text-xs", "md:text-sm", "font-bold", "pl-10", "py-5");
+
+    if (type === "success") {
+      flashContainer.classList.add("bg-green-400");
+    } else if (type === "error") {
+      flashContainer.classList.add("bg-red-400");
+    }
+
+    flashContainer.textContent = message;
+
+    const flashContainerElement = document.getElementById("flash");
+
+    if (flashContainerElement) {
+      flashContainerElement.appendChild(flashContainer);
+      setTimeout(() => {
+        flashContainerElement.removeChild(flashContainer);
+      }, 5000)
+    }
+  }
 }
