@@ -20,4 +20,16 @@ class Shop < ApplicationRecord
   def clothes?
     type == "Clothes"
   end
+
+  def closest_shop(latitude, longitude)
+    if type == 'Clothes'
+      target_location = Geokit::LatLng.new(latitude, longitude)
+      clothes_closest_shop = Clothes.where.not(id: self.id).closest(origin: target_location, units: :kms, within: 10).first
+      clothes_closest_shop
+    else
+      target_location = Geokit::LatLng.new(latitude, longitude)
+      cafe_closest_shop = Cafe.where.not(id: self.id).closest(origin: target_location, units: :kms, within: 10).first
+      cafe_closest_shop
+    end
+  end
 end

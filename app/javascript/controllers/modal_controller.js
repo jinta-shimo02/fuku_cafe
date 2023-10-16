@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 shopId = null;
 
 export default class extends Controller {
-  static targets = ["myModal"]
+  static targets = ["myModal", "recommendModal"]
 
   connect() {
     // "bookmark-icon" クラスの要素を取得
@@ -44,7 +44,7 @@ export default class extends Controller {
         if (data.success) {
           this.setFlashMessage("success", `${data.name}へ保存しました`);
         } else {
-          this.setFlashMessage("error", `すでに保存しています`);
+          this.setFlashMessage("error", "すでに保存しています");
         }
       })
       .catch(error => {
