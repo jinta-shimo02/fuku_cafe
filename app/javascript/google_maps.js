@@ -192,26 +192,26 @@ function updateShopList(type, shops) {
       const shop_image = shop.shop_images[0];
 
       const shopCard = document.createElement('div');
-      shopCard.className = 'card bg-base-200 border-gray-500 shadow-xl m-5';
+      shopCard.className = 'card w-11/12 bg-base-200 border-gray-500 shadow-xl m-2 md:m-3';
 
       const cardContent = `
         <div class="flex" data-controller="modal">
-          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=${shop_image.image}&key=${API_KEY}" class="p-3 md:p-5 w-20 h-20 md:w-48 md:h-48 rounded-3xl">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=${shop_image.image}&key=${API_KEY}" class="p-3 md:p-5 w-20 h-20 md:w-36 md:h-36 rounded-3xl">
           <div class="flex-col">
             <ul>
-              <li class="md:pl-4 mt-3 md:pt-3 text-sm md:text-3xl underline hover:text-yellow-500"><a href="/shops/${shop.id}">${shop.name}</a></li>
-              <li class="md:pl-4 mt-1.5 md:pt-2 text-[10px] md:text-base">${shop.address}</li>
-              <li class="md:pl-4 pt-1.5 pb-1 text-[10px] md:text-base">${shop.phone_number}</li>
+              <li class="md:pl-2 mt-2 md:pt-3 text-[6px] md:text-xl underline hover:text-yellow-500"><a href="/shops/${shop.id}">${shop.name}</a></li>
+              <li class="md:pl-4 mt-1 md:mt-1.5 text-[4px] md:text-xs">${shop.address}</li>
+              <li class="md:pl-4 mt-1 md:mt-1.5 text-[4px] md:text-xs">${shop.phone_number}</li>
               <a href="https://www.google.com/maps/search/?api=1&query=${shop.name}&query_place_id=${shop.place_id}" target=_"blank" rel="noopener noreferrer">
-              <li class="mb-1.5 py-3 px-3 text-sm md:text-base text-center rounded-full bg-blue-500 text-white font-bold w-24 md:w-48 hidden md:block hover:bg-gray-300">
+              <li class="mb-1.5 py-2 px-2 mt-1 md:mt-1.5 md:text-xs text-center rounded-full bg-blue-500 text-white font-bold w-24 md:w-40 hidden md:block hover:bg-blue-600">
                 <i class="fa-solid fa-location-dot"></i>
                 GoogleMapで見る
               </li>
               </a>
             </ul>
           </div>
-            <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-5 md:mr-10 m-5 bookmark-icon" data-shop-id="${shop.id}">
-            ${userIsLoggedIn ? '<i class="fa-solid fa-plus w-7 g-4 md:w-14 md:h-8 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
+            <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-3 md:mr-8 mb-3 mb-5 bookmark-icon" data-shop-id="${shop.id}">
+            ${userIsLoggedIn ? '<i class="fa-solid fa-plus w-7 g-4 md:w-10 md:h-6 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
             </a>
         </div>
       `;
@@ -222,7 +222,7 @@ function updateShopList(type, shops) {
   } else {
     const noShopsElement = document.createElement('p');
     noShopsElement.textContent = '近くにショップはありません';
-    noShopsElement.className = 'text-base md:text-2xl pt-5 text-center';
+    noShopsElement.className = 'text-xs md:text-lg pt-5 text-center mb-5';
     shopsListElement.appendChild(noShopsElement);
   }
 }
