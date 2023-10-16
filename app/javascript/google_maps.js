@@ -199,9 +199,9 @@ function updateShopList(type, shops) {
           <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=${shop_image.image}&key=${API_KEY}" class="p-3 md:p-5 w-20 h-20 md:w-36 md:h-36 rounded-3xl">
           <div class="flex-col">
             <ul>
-              <li class="md:pl-2 mt-2 md:pt-3 text-[6px] md:text-xl underline hover:text-yellow-500"><a href="/shops/${shop.id}">${shop.name}</a></li>
-              <li class="md:pl-4 mt-1 md:mt-1.5 text-[4px] md:text-xs">${shop.address}</li>
-              <li class="md:pl-4 mt-1 md:mt-1.5 text-[4px] md:text-xs">${shop.phone_number}</li>
+              <li class="md:pl-2 pt-3 text-[6px] md:text-xl underline hover:text-yellow-500"><a href="/shops/${shop.id}">${shop.name}</a></li>
+              <li class="pl-1 md:pl-4 mt-1 md:mt-1.5 text-[4px] md:text-xs">${shop.address}</li>
+              <li class="pl-1 md:pl-4 mt-1 md:mt-1.5 text-[4px] md:text-xs">${shop.phone_number}</li>
               <a href="https://www.google.com/maps/search/?api=1&query=${shop.name}&query_place_id=${shop.place_id}" target=_"blank" rel="noopener noreferrer">
               <li class="mb-1.5 py-2 px-2 mt-1 md:mt-1.5 md:text-xs text-center rounded-full bg-blue-500 text-white font-bold w-24 md:w-40 hidden md:block hover:bg-blue-600">
                 <i class="fa-solid fa-location-dot"></i>
@@ -210,7 +210,7 @@ function updateShopList(type, shops) {
               </a>
             </ul>
           </div>
-            <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-3 md:mr-8 mb-3 mb-5 bookmark-icon" data-shop-id="${shop.id}">
+            <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-3 md:mr-8 mb-3 md:mb-5 bookmark-icon" data-shop-id="${shop.id}">
             ${userIsLoggedIn ? '<i class="fa-solid fa-plus w-7 g-4 md:w-10 md:h-6 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
             </a>
         </div>
