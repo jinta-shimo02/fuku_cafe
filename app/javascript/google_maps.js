@@ -199,11 +199,11 @@ function updateShopList(type, shops) {
           <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=${shop_image.image}&key=${API_KEY}" class="p-3 md:p-5 w-20 h-20 md:w-36 md:h-36 rounded-3xl">
           <div class="flex-col">
             <ul>
-              <li class="md:pl-2 pt-3 text-[10px] md:text-xl underline hover:text-yellow-500"><a href="/shops/${shop.id}">${shop.name}</a></li>
-              <li class="pl-1 md:pl-4 mt-1 md:mt-1.5 text-[8px] md:text-xs">${shop.address}</li>
-              <li class="pl-1 md:pl-4 mt-1 md:mt-1.5 text-[8px] md:text-xs">${shop.phone_number}</li>
+              <li class="md:pl-2 pt-3 text-[9px] md:text-xl underline hover:text-yellow-500"><a href="/shops/${shop.id}">${shop.name}</a></li>
+              <li class="pl-1 md:pl-4 mt-1 md:mt-1.5 text-[7px] md:text-xs">${shop.address}</li>
+              <li class="pl-1 md:pl-4 mt-1 md:mt-1.5 text-[7px] md:text-xs">${shop.phone_number}</li>
               <a href="https://www.google.com/maps/search/?api=1&query=${shop.name}&query_place_id=${shop.place_id}" target=_"blank" rel="noopener noreferrer">
-              <li class="mb-1.5 py-2 px-2 mt-1 md:mt-1.5 text-[10px] md:text-xs text-center rounded-full bg-blue-500 text-white font-bold w-24 md:w-40 hover:bg-blue-600">
+              <li class="mb-1.5 py-2 px-2 mt-1 md:mt-1.5 text-[8px] md:text-xs text-center rounded-full bg-blue-500 text-white font-bold w-24 md:w-40 hover:bg-blue-600">
                 <i class="fa-solid fa-location-dot"></i>
                 GoogleMapで見る
               </li>
