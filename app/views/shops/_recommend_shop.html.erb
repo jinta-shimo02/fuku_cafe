@@ -6,19 +6,19 @@
         <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=<%= closest_shop.shop_images[0].image %>&key=<%= ENV["API_KEY"] %>" class="p-3 md:p-5 w-20 h-20 md:w-32 md:h-32 rounded-3xl">
           <div class="flex-col">
             <ul>
-              <li class="md:pl-2 pt-3 text-[6px] md:text-base underline hover:text-yellow-500">
+              <li class="md:pl-2 pt-3 text-[10px] md:text-base underline hover:text-yellow-500">
                 <%= link_to closest_shop.name, shop_path(closest_shop) %>
               </li>
-              <li class="pl-1 md:pl-4 pt-1 text-[4px] md:text-xs">
+              <li class="pl-1 md:pl-4 pt-1 text-[8px] md:text-xs">
                 <%= closest_shop.address %>
               </li>
-              <li class="pl-1 md:pl-4 pt-1 text-[4px] md:text-xs">
+              <li class="pl-1 md:pl-4 pt-1 text-[8px] md:text-xs">
                 <%= closest_shop.phone_number %>
               </li>
               <a href="https://www.google.com/maps/search/?api=1&query=<%= closest_shop.name %>&query_place_id=<%= closest_shop.place_id %>" target="_blank" rel="noopener noreferrer">
-                <li class="mt-1.5 py-1 px-1 text-center rounded-full bg-blue-500 text-white font-bold w-36 hidden md:block hover:bg-gray-300">
+                <li class="mb-1.5 py-2 px-2 mt-1 md:mt-1.5 text-[10px] md:text-xs text-center rounded-full bg-blue-500 text-white font-bold w-24 md:w-40 hover:bg-blue-600">
                 <i class="fa-solid fa-location-dot"></i>
-                <span class="text-[10px] md:text-xs">GoogleMapで見る</span>
+                GoogleMapで見る
                 </li>
               </a>
           </div>
