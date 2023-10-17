@@ -1,43 +1,45 @@
 <div class="grid place-items-center">
-  <div class="card w-11/12 md:w-4/5 bg-base-100 shadow-md z-0 rounded-3xl my-20">
-    <div class="card-body pt-10 md:pt-20">
+  <div class="card w-11/12 md:w-4/5 bg-base-100 shadow-md z-0 rounded-3xl my-8 md:my-16">
+    <div class="card-body pt-8 md:pt-16">
       <div class="flex" data-controller="modal">
-        <p class="text-base md:text-2xl underline pl-5 md:pl-10"><%= @shop.name %></p>
+        <p class="text-sm md:text-xl underline pl-3 md:pl-8"><%= @shop.name %></p>
         <% if user_signed_in? %>
-          <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-5 md:mr-10 m-5 bookmark-icon" data-shop-id="<%= @shop.id %>">
-            <i class="fa-solid fa-plus w-7 g-4 md:w-14 md:h-8 hover:text-yellow-500" data-modal-target="myModal"></i>
+          <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-3 md:mr-10 bookmark-icon" data-shop-id="<%= @shop.id %>">
+            <i class="fa-solid fa-plus w-7 g-4 md:w-12 md:h-7 hover:text-yellow-500" data-modal-target="myModal"></i>
           </a>
         <% end %>
       </div>
-      <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">住　　所：<%= @shop.address %></p>
+      <p class="pl-6 md:pl-20 mt-1 md:mt-4 text-[8px] md:text-base">住　　所：<%= @shop.address %></p>
       <div class="flex">
-        <div class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">営業時間：</div>
-        <span class="text-[10px] md:text-lg mt-4"><%= raw @shop.opening_hours.gsub(/(～\d+時\d+分|定休日)/, "\\1<br>") %></span>
+        <div class="pl-6 md:pl-20 mt-1 md:mt-2 text-[8px] md:text-base">営業時間：</div>
+        <span class="text-[10px] md:text-base mt-1 md:mt-2"><%= raw @shop.opening_hours.gsub(/(～\d+時\d+分|定休日)/, "\\1<br>") %></span>
       </div>
-      <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">電話番号：<%= @shop.phone_number %></p>
-      <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">公式サイト：
-        <span class="text-[10px] md:text-lg text-blue-500 hover:text-yellow-500">
+      <p class="pl-6 md:pl-20 mt-1 md:mt-2 text-[8px] md:text-base">電話番号：<%= @shop.phone_number %></p>
+      <p class="pl-6 md:pl-20 mt-1 md:mt-2 text-[8px] md:text-base">公式サイト：
+        <span class="text-[10px] md:text-base text-blue-500 hover:text-yellow-500">
           <%= @shop.web_site.present? ? link_to(@shop.web_site.chomp('/'), @shop.web_site.chomp('/'), target: :_brank) : 'サイトがありません' %>
         </span>
       </p>
       <% if @shop.clothes? %>
-        <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">取扱ブランド</p>
+        <p class="pl-6 md:pl-20 mt-1 md:mt-2 text-[8px] md:text-base">取扱ブランド</p>
         <% @shop.brands.each do |brand| %>
-         <p class="text-[10px] md:text-lg text-center"><%= brand.name %></p>
+         <p class="text-[8px] md:text-base text-center"><%= brand.name %></p>
         <% end %>
       <% end %>
-      <p class="pl-10 md:pl-20 mt-4 text-[10px] md:text-lg">ギャラリー</p>
-      <div class="flex overflow-x-hidden">
+      <p class="pl-6 md:pl-20 mt-1 md:mt-2 text-[8px] md:text-base">ギャラリー</p>
+      <div class="flex flex-wrap">
         <% @shop_images.each do |shop_image| %>
-          <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="mx-2 rounded-xl w-12 h-12 md:w-32 md:h-32">
+          <div class="w-1/5 p-1">
+            <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=1000&maxwidth=1000&photo_reference=<%= shop_image.image %>&key=<%= ENV['API_KEY'] %>" class="w-full max-w-xs max-h-xs rounded-xl">
+          </div>
         <% end %>
       </div>
     </div>
     <%= render 'recommend_shop', closest_shop: @closest_shop %>
-    <div class="card-body border-t border-gray-400 p-10">
+    <div class="card-body border-t border-gray-400 p-5 md:p-10">
       <div class="flex justify-center items-center h-full">
         <div class="card w-full bg-base-200 shadow-xl">
-          <p class="pl-10 py-4 md:py-7 text-sm md:text-lg border-b border-gray-500">レビュー</p>
+          <p class="pl-10 py-4 md:py-7 text-sm md:text-base border-b border-gray-500">レビュー</p>
             <div id="reviews">
               <%= turbo_frame_tag 'review_modal' do %>
                 <%= render @reviews %>
@@ -49,7 +51,7 @@
               <% end %>
             </div>
             <% if user_signed_in? %>
-              <div class="flex justify-end mx-10 mt-5 md:mt-10 mb-5">
+              <div class="flex justify-end mx-10 mb-5">
                 <%= link_to 'レビューを書く', new_shop_review_path(@shop), class: 'btn btn-sm md:btn-md btn-neutral', data: { turbo_frame: 'review_modal' } %>
               </div>
             <% end %>

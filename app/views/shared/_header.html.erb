@@ -1,9 +1,9 @@
 <div class="navbar bg-yellow-200 flex justify-between items-center">
   <div class="flex items-center">
     <%= link_to root_path do %>
-      <%= image_tag 'logo.png', class: 'rounded-full h-12 w-12 md:h-16 md:w-16 m-auto' %>
+      <%= image_tag 'logo.png', class: 'rounded-full h-10 w-10 md:h-16 md:w-16 m-auto' %>
     <% end %>
-    <%= link_to '服カフェ', root_path, class: 'font-bold text-sm md:text-xl hover:text-yellow-500 ml-3' %>
+    <%= link_to '服カフェ', root_path, class: 'font-bold text-xs md:text-xl hover:text-yellow-500 ml-2 md:ml-3' %>
   </div>
   <div class="drawer-end flex items-center">  
     <% if current_page?(home_path) %>
@@ -22,19 +22,19 @@
             <% end %>
           </ul>
       </details>
-      <div id="search-clothes-button" class="md:flex md:items-center mr-5 hover:text-yellow-500">
+      <div id="search-clothes-button" class="md:flex md:items-center mr-3 md:mr-5 hover:text-yellow-500">
         <i class="fa-solid fa-shirt"></i>
         <button class="ml-1 hidden md:block"><%= t('defaults.search_shop') %></button>
       </div>
-      <div id="search-cafe-button" class="md:flex md:items-center mr-5 hover:text-yellow-500">
+      <div id="search-cafe-button" class="md:flex md:items-center mr-3 md:mr-5 hover:text-yellow-500">
         <i class="fa-solid fa-mug-saucer"></i>
         <button class="ml-1 hidden md:block"><%= t('defaults.search_cafe') %></button>
       </div>
     <% end %>
     <% if user_signed_in? %>  
-      <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'text-xs md:text-sm mr-5 btn btn-sm md:btn-md btn-neutral' %>
+      <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'text-xs md:text-sm mr-3 md:mr-5 btn btn-sm md:btn-md btn-neutral' %>
     <% else %>
-      <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'text-xs md:text-sm mr-5 btn btn-sm md:btn-md btn-neutral' %>
+      <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'text-xs md:text-sm mr-3 md:mr-5 btn btn-sm md:btn-md btn-neutral' %>
     <% end %>
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
     <label for="my-drawer-4" class="drawer-button">
