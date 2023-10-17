@@ -1,16 +1,16 @@
-<div class="grid place-items-center mb-20">
-  <h1 class="text-lg md:text-2xl m-10"><%= t('defaults.my_page') %></h1>
+<div class="grid place-items-center my-5 md:my-10">
+  <h1 class="text-lg md:text-2xl mb-5 md:mb-10"><%= t('defaults.my_page') %></h1>
   <div class="card w-11/12 md:w-4/5 bg-base-100 shadow-md z-0">
-    <div class="card-body border-b border-gray-500 p-10">
+    <div class="card-body border-b border-gray-500 p-5 md:p-10">
       <div class="flex justify-evenly items-center">
         <%= image_tag 'logo.png', class: 'w-32 h-32 md:w-48 md:h-48' %>
         <div class="flex flex-col">
-          <p class="mb-10 text-center"><%= @user.name %></p>
+          <p class="mb-10 text-sm md:text-base text-center"><%= @user.name %></p>
           <%= link_to '編集', edit_my_page_path, class: 'w-16 btn btn-sm md:btn-md btn-neutral' %>
         </div>
       </div>
     </div>
-    <div class="card-body border-b border-gray-500 p-10">
+    <div class="card-body border-b border-gray-500 p-5 md:p-10">
       <div class="flex justify-center items-center h-full">
         <div class="card w-full md:w-11/12 bg-base-200 border-gray-500 shadow-xl">
           <div class="border-b border-gray-500 p-5">
@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="card-body border-t border-gray-500 p-10">
+    <div class="card-body border-t border-gray-500 p-5 md:p-10">
       <div class="flex justify-center items-center h-full">
         <div class="card w-full md:w-11/12 bg-base-200 shadow-xl">
           <p class="p-5 text-sm md:text-lg border-b border-gray-500">マイレビュー</p>
