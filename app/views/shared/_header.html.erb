@@ -5,38 +5,23 @@
     <% end %>
     <%= link_to '服カフェ', root_path, class: 'font-bold text-xs md:text-xl hover:text-yellow-500 ml-2 md:ml-3' %>
   </div>
-  <div class="drawer-end flex items-center">  
+  <div class="drawer-end flex items-center">
     <% if current_page?(home_path) %>
-      <details class="dropdown">
-        <summary class="mr-5 ml-1 text-xs md:text-base hidden md:block hover:text-yellow-500"><%= t('defaults.search_brand') %></summary>
-          <ul class="p-2 shadow menu dropdown-content z-[1] bg-yellow-50 w-screen max-w-3xl">
-            <% @brands.each_slice(4) do |brand_group| %>
-              <li class="my-2">
-                <ul class="flex space-x-2">
-                  <% brand_group.each do |brand| %>
-                    <button id="search-brand-button-<%= brand.id %>" class="hover:text-yellow-500"><%= brand.name %></button>
-                    <span>|</span>
-                  <% end %>
-                 </ul>
-              </li>
-            <% end %>
-          </ul>
-      </details>
-      <div id="search-clothes-button" class="md:flex md:items-center mr-3 md:mr-5 hover:text-yellow-500">
+      <div data-controller="autocomplete" data-autocomplete-url-value="/brands/search" class="relative">
+        <input name="input" type="text" class="text-center text-xs md:text-base border border-gray-400 p-1 bg-yellow-100 w-20 md:w-48" data-autocomplete-target="input" placeholder="マルチ検索"/>
+        <input type="hidden" name="brand_id" data-autocomplete-target="hidden">
+        <ul data-autocomplete-target="results" class="absolute z-10 focus:within:bg-yellow-100"></ul>
+      </div>
+      <div id="search-clothes-button" class="md:flex md:items-center  mx-3 md:mx-8 hover:text-yellow-500">
         <i class="fa-solid fa-shirt"></i>
         <button class="ml-1 hidden md:block"><%= t('defaults.search_shop') %></button>
       </div>
-      <div id="search-cafe-button" class="md:flex md:items-center mr-3 md:mr-5 hover:text-yellow-500">
+      <div id="search-cafe-button" class="md:flex md:items-center mr-3 md:mr-8 hover:text-yellow-500">
         <i class="fa-solid fa-mug-saucer"></i>
         <button class="ml-1 hidden md:block"><%= t('defaults.search_cafe') %></button>
       </div>
     <% end %>
-    <% if user_signed_in? %>  
-      <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'text-xs md:text-sm mr-3 md:mr-5 btn btn-sm md:btn-md btn-neutral' %>
-    <% else %>
-      <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'text-xs md:text-sm mr-3 md:mr-5 btn btn-sm md:btn-md btn-neutral' %>
-    <% end %>
-    <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+    <input id="my-drawer-4" type="checkbox" class="drawer-toggle"/>
     <label for="my-drawer-4" class="drawer-button">
       <i class="fas fa-bars mr-5 h-5 w-5"></i>
     </label>
@@ -50,6 +35,11 @@
           <% @shop_saved_lists.each do |list| %>
             <%= link_to list.name, shop_saved_list_path(list), class: 'pl-7 mt-5 text-xs md:text-sm border-b border-gray-300 pb-2 hover:text-yellow-500' %>
           <% end %>
+        <% end %>
+        <% if user_signed_in? %>  
+          <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
+        <% else %>
+          <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
         <% end %>
       </ul>
     </div>

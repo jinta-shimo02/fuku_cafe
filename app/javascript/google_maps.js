@@ -119,21 +119,16 @@ function initMap() {
     filterSearch(currentFilter);
   });
 
-  var brandButtons = document.querySelectorAll('[id^="search-brand-button-"]');
-  brandButtons.forEach(function(button) {
-    button.addEventListener('click', function(event) {
-      var clickedElement = event.target;
-      brandName = clickedElement.textContent;
+  document.addEventListener("click", function(event) {
+    const brandListItem = event.target.closest(".brand-list-item");
+    if (brandListItem) {
+      brandName = brandListItem.textContent;
       currentFilter = 'brand';
       filterSearch(currentFilter, brandName);
-      
-      var dropdown = button.closest('.dropdown');
-      if (dropdown) {
-        dropdown.removeAttribute('open');
-      }
-    });
+      setFlashMessage("success", `${brandName}で検索ができます`);
+    }
   });
-  
+
   document.getElementById('maps_init').addEventListener('click', function() {
     location.reload();
   });
@@ -265,4 +260,26 @@ function handleLocationError(browserHasGeolocation, infoWindow, lat, lng) {
       : "お使いのブラウザではサポートされていません"
   );
   infoWindow.open(map);
+}
+
+function setFlashMessage(type, message) {
+  const flashContainer = document.createElement("div");
+  flashContainer.classList.add("flex", "items-center", "text-white", "text-xs", "md:text-sm", "font-bold", "pl-10", "py-5");
+
+  if (type === "success") {
+    flashContainer.classList.add("bg-green-400");
+  } else if (type === "error") {
+    flashContainer.classList.add("bg-red-400");
+  }
+
+  flashContainer.textContent = message;
+
+  const flashContainerElement = document.getElementById("flash");
+
+  if (flashContainerElement) {
+    flashContainerElement.appendChild(flashContainer);
+    setTimeout(() => {
+      flashContainerElement.removeChild(flashContainer);
+    }, 5000)
+  }
 }
