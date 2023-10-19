@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 
   get 'home', to: 'maps#home'
+  get 'brands/search', to:'brands#search'
 
   devise_for :users
   resource :my_page, only: %i[show edit update]

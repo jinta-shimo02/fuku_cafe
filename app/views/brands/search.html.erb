@@ -1,0 +1,28 @@
+<% @brands.each do |brand| %>
+  <li class="cursor-pointer text-xs md:text-sm border bg-white p-2 hover:bg-yellow-300" role="option" data-autocomplete-value="<% brand.id %>" data-autocomplete-label="<% brand.name %>">
+    <div class="flex items-center">
+      <i class="fa-solid fa-tag mr-2"></i>
+      <button class="brand-list-item w-full"><%= brand.name %></button>
+    </div>
+  </li>
+<% end %>
+<% @cafes.each do |cafe| %>
+  <%= link_to shop_path(cafe) do %>
+    <li class="cursor-pointer text-xs md:text-sm border bg-white p-2 hover:bg-yellow-300" role="option" data-autocomplete-value="<% cafe.id %>" data-autocomplete-label="<% cafe.name %>">
+      <div class="flex items-center">
+        <i class="fa-solid fa-mug-saucer mr-2"></i>
+        <%= cafe.name %>
+      </div>
+    </li>
+  <% end %>
+<% end %>
+<% @clothes.each do |cloth| %>
+  <%= link_to shop_path(cloth) do %>
+    <li class="cursor-pointer text-xs md:text-sm border bg-white p-2 hover:bg-yellow-300" role="option" data-autocomplete-value="<% cloth.id %>" data-autocomplete-label="<% cloth.name %>">
+      <div class="flex items-center">
+        <i class="fa-solid fa-shirt mr-2"></i>
+        <%= cloth.name %>
+      </div>
+    </li>
+  <% end %>
+<% end %>
