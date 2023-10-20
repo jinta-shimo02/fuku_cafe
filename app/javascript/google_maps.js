@@ -129,10 +129,6 @@ function initMap() {
     }
   });
 
-  document.getElementById('maps_init').addEventListener('click', function() {
-    location.reload();
-  });
-  
   map.addListener('dragend', updateSearch);
   pin.addListener('dragend', updateSearch);
 }
