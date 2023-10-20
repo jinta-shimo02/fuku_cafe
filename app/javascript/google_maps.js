@@ -120,14 +120,14 @@ function initMap() {
   });
 
   document.addEventListener("click", function(event) {
-    const brandListItem = event.target.closest(".brand-list-item");
-    if (brandListItem) {
-      brandName = brandListItem.textContent;
-      currentFilter = 'brand';
+  const brandListItem = event.target.closest(".brand-list-item");
+  if (brandListItem) {
+    brandName = brandListItem.querySelector("p").textContent;
+    currentFilter = 'brand';
       filterSearch(currentFilter, brandName);
       setFlashMessage("success", `${brandName}で検索ができます`);
-    }
-  });
+  }
+});
 
   map.addListener('dragend', updateSearch);
   pin.addListener('dragend', updateSearch);
@@ -276,6 +276,6 @@ function setFlashMessage(type, message) {
     flashContainerElement.appendChild(flashContainer);
     setTimeout(() => {
       flashContainerElement.removeChild(flashContainer);
-    }, 5000)
+    }, 3000)
   }
 }
