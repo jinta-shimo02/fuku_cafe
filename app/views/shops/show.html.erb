@@ -5,7 +5,7 @@
         <p class="text-sm md:text-xl underline pl-3 md:pl-8"><%= @shop.name %></p>
         <% if user_signed_in? %>
           <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-3 md:mr-10 bookmark-icon" data-shop-id="<%= @shop.id %>">
-            <i class="fa-solid fa-plus w-7 g-4 md:w-12 md:h-7 hover:text-yellow-500" data-modal-target="myModal"></i>
+            <i class="fa-solid fa-folder w-7 g-4 md:w-12 md:h-7 hover:text-yellow-500" data-modal-target="myModal"></i>
           </a>
         <% end %>
       </div>
