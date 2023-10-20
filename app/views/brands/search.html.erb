@@ -1,8 +1,8 @@
 <% @brands.each do |brand| %>
-  <li class="cursor-pointer text-xs md:text-sm border bg-white p-2 hover:bg-yellow-300" role="option" data-autocomplete-value="<% brand.id %>" data-autocomplete-label="<% brand.name %>">
+  <li class="brand-list-item cursor-pointer text-xs md:text-sm border bg-white p-2 hover:bg-yellow-300" role="option" data-autocomplete-value="<% brand.id %>" data-autocomplete-label="<% brand.name %>">
     <div class="flex items-center">
       <i class="fa-solid fa-tag mr-2"></i>
-      <button class="brand-list-item w-full"><%= brand.name %></button>
+      <p><%= brand.name %></p>
     </div>
   </li>
 <% end %>

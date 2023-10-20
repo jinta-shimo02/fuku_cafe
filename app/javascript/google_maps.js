@@ -120,19 +120,15 @@ function initMap() {
   });
 
   document.addEventListener("click", function(event) {
-    const brandListItem = event.target.closest(".brand-list-item");
-    if (brandListItem) {
-      brandName = brandListItem.textContent;
-      currentFilter = 'brand';
+  const brandListItem = event.target.closest(".brand-list-item");
+  if (brandListItem) {
+    brandName = brandListItem.querySelector("p").textContent;
+    currentFilter = 'brand';
       filterSearch(currentFilter, brandName);
       setFlashMessage("success", `${brandName}で検索ができます`);
-    }
-  });
+  }
+});
 
-  document.getElementById('maps_init').addEventListener('click', function() {
-    location.reload();
-  });
-  
   map.addListener('dragend', updateSearch);
   pin.addListener('dragend', updateSearch);
 }
@@ -206,7 +202,7 @@ function updateShopList(type, shops) {
             </ul>
           </div>
             <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-3 md:mr-8 mb-3 md:mb-5 bookmark-icon" data-shop-id="${shop.id}">
-            ${userIsLoggedIn ? '<i class="fa-solid fa-plus w-7 g-4 md:w-10 md:h-6 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
+            ${userIsLoggedIn ? '<i class="fa-solid fa-folder w-7 g-4 md:w-10 md:h-6 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
             </a>
         </div>
       `;
@@ -280,6 +276,6 @@ function setFlashMessage(type, message) {
     flashContainerElement.appendChild(flashContainer);
     setTimeout(() => {
       flashContainerElement.removeChild(flashContainer);
-    }, 5000)
+    }, 3000)
   }
 }
