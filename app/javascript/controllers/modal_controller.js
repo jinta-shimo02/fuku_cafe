@@ -3,20 +3,14 @@ import { Controller } from "@hotwired/stimulus"
 shopId = null;
 
 export default class extends Controller {
-  static targets = ["myModal", "recommendModal"]
+  static targets = ["myModal", "backGround"]
 
   connect() {
-    // "bookmark-icon" クラスの要素を取得
     const bookmarkButtons = document.getElementsByClassName("bookmark-icon");
-      
-    // 各ブックマークボタンにクリックイベントリスナーを追加
+
     for (const bookmarkButton of bookmarkButtons) {
       bookmarkButton.addEventListener("click", this.buttonClick);
     }
-  }
-
-  open() {
-    this.myModalTarget.classList.remove('hidden');
   }
   
   close(event) {
@@ -25,12 +19,12 @@ export default class extends Controller {
 
     if (shopId && listId) {
       const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
+      
       fetch(`/shops/${shopId}/list_shops?list_id=${listId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-Token': csrfToken, // CSRFトークンを追加
+          'X-CSRF-Token': csrfToken, 
         },
       })
       .then(response => {
@@ -52,38 +46,43 @@ export default class extends Controller {
         this.setFlashMessage("error", "リクエストエラーが発生しました");
       });
     }
-    this.myModalTarget.classList.add("hidden");
+    this.backGroundTarget.classList.add("hidden");
   }
-
-  new_list_close(event) {
-      this.myModalTarget.classList.add("hidden");
+  
+  closeModal() {
+    this.backGroundTarget.classList.add("hidden");
   }
-
+  
   buttonClick(event) {
-    // クリックされたブックマークボタンから data-shop-id を取得
     const clickedButton = event.currentTarget;
-    shopId = clickedButton.getAttribute("data-shop-id"); // グローバル変数に代入
+    shopId = clickedButton.getAttribute("data-shop-id");
   }
-
+  
   setFlashMessage(type, message) {
     const flashContainer = document.createElement("div");
     flashContainer.classList.add("flex", "items-center", "text-white", "text-xs", "md:text-sm", "font-bold", "pl-10", "py-5");
-
+    
     if (type === "success") {
       flashContainer.classList.add("bg-green-400");
     } else if (type === "error") {
       flashContainer.classList.add("bg-red-400");
     }
-
+    
     flashContainer.textContent = message;
-
+    
     const flashContainerElement = document.getElementById("flash");
-
+    
     if (flashContainerElement) {
       flashContainerElement.appendChild(flashContainer);
       setTimeout(() => {
         flashContainerElement.removeChild(flashContainer);
       }, 5000)
+    }
+  }
+
+  closeBackground(event) {
+    if(event.target === this.backGroundTarget) {
+      this.closeModal();
     }
   }
 }

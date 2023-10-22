@@ -1,8 +1,11 @@
 <%= turbo_frame_tag "modal" do %>
-  <div id="myModal" class="fixed inset-0 flex items-center justify-center z-50 bg-gray-500 bg-opacity-50" data-controller="modal" data-modal-target="myModal">
-    <div class="modal-content bg-white rounded-xl shadow-lg p-5 md:p-10 w-80 md:w-[450px]">
-      <h2 class="text-base md:text-lg font-semibold mb-6">新しいリスト</h2>
-      <%= form_with model: @shop_saved_list, data: { action: "turbo:submit-end->modal#new_list_close"} do |f| %>
+  <div id="myModal" class="fixed inset-0 flex items-center justify-center z-50 bg-gray-500 bg-opacity-50" data-controller="modal" data-modal-target="backGround" data-action="click->modal#closeBackground">
+    <div class="modal-content bg-white rounded-xl shadow-lg p-5 md:p-10 w-80 md:w-[450px]" data-modal-target="myModal">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-base md:text-lg font-semibold">新しいリスト</h2>
+        <i class="fa-solid fa-xmark h-6 w-6 hover:text-yellow-500" data-action="click->modal#closeModal"></i>
+      </div>
+      <%= form_with model: @shop_saved_list, data: { action: "turbo:submit-end->modal#closeModal"} do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <div class="flex flex-col justify-center mt-4">
           <%= f.text_field :name, class: 'input input-warning border-gray-800' %>
