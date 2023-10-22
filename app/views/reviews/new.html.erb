@@ -1,6 +1,9 @@
 <%= turbo_frame_tag 'review_modal' do %>
-  <div class="fixed inset-0 flex items-center justify-center z-50 bg-gray-500 bg-opacity-50" data-controller="review-modal" data-review-modal-target="reviewModal">
-    <div class="modal-content bg-white rounded-xl shadow-lg p-10 w-18 md: w-[450px]">
+  <div class="fixed inset-0 flex items-center justify-center z-50 bg-gray-500 bg-opacity-50" data-controller="review-modal" data-review-modal-target="backGround" data-action="click->review-modal#closeBackground">
+    <div class="modal-content bg-white rounded-xl shadow-lg p-10 w-18 md:w-[450px]" data-review-modal-target="reviewModal">
+      <div class="flex justify-end items-center">
+        <i class="fa-solid fa-xmark h-6 w-6 hover:text-yellow-500" data-action="click->review-modal#closeModal"></i>
+      </div>
       <%= form_with model: @review, url: shop_reviews_path(@shop), data: { action: "turbo:submit-end->review-modal#close" }, method: :post do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <div class="max-w-lg mx-auto p-2 md:p-6 bg-white rounded-xl space-y-2 md:space-y-4">
