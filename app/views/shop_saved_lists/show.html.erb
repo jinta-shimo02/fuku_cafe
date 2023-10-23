@@ -4,7 +4,7 @@
       <%= render "shop_saved_list", shop_saved_list: @shop_saved_list %>
     </div>
     <div class="card-body p-3 md:p-10">
-      <% @shop_saved_list.shops.each do |shop| %>
+      <% @list_shops.each do |shop| %>
         <div class="card bg-base-200 border-gray-500 shadow-xl m-2">
           <div class="flex">
             <img src="https://maps.googleapis.com/maps/api/place/photo?maxheight=200&maxwidth=200&photo_reference=<%= shop.shop_images[0].image %>&key=<%= ENV["API_KEY"] %>" class="p-3 md:p-5 w-20 h-20 md:w-36 md:h-36 rounded-3xl">
