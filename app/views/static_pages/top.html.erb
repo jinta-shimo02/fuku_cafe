@@ -14,7 +14,7 @@
           <% if user_signed_in? %>
             <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'bg-gray-300 py-4 px-6 md:px-12 font-bold rounded-full text-sm md:text-lg hover:bg-gray-500' %>
           <% else %>
-            <%= link_to t('defaults.sign_up'), new_user_registration_path, class: 'bg-gray-300 py-4 px-6 md:px-12 font-bold rounded-2xl text-sm md:text-lg hover:bg-gray-500' %>
+            <%= link_to t('defaults.sign_up'), new_user_registration_path, class: 'bg-gray-300 py-4 px-6 md:px-12 font-bold rounded-full text-sm md:text-lg hover:bg-gray-500' %>
           <% end %>
         </div>
       </div>

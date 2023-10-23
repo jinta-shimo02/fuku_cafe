@@ -18,8 +18,8 @@
           </div>
           <div class="card-body p-2 md:p-5">
             <% @shop_saved_lists.each do |list| %>
-              <div class="flex justify-between items-center border-b border-gray-400">
-                <%= link_to list.name, shop_saved_list_path(list), class: 'text-xs md:text-base text-left p-3 hover:text-yellow-500'%>
+              <div class="flex justify-between items-center border-b border-gray-500">
+                <%= link_to list.name, shop_saved_list_path(list), class: 'text-xs md:text-base text-left p-3 hover:border-b hover:border-yellow-500 hover:text-yellow-500'%>
                 <%= link_to '削除', shop_saved_list_path(list), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'w-16 btn btn-sm md:btn-md bg-red-400 text-white my-2' %>
               </div>
             <% end %>
@@ -36,7 +36,7 @@
               <div class="border-b border-gray-400 py-5 mx-5">
                 <div class="flex justify-between mx-2 items-center">
                   <div class="text-left">
-                    <%= link_to review.shop.name, shop_path(review.shop), class: 'text-[10px] md:text-sm hover:text-yellow-500' %>
+                    <%= link_to review.shop.name, shop_path(review.shop), class: 'text-[10px] md:text-sm border-b border-gray-400 hover:border-yellow-500 hover:text-yellow-500' %>
                   </div>
                   <div class="text-right">
                     <p class="text-[10px] md:text-sm text-gray-500"><%= l review.created_at, format: :simple %></p>

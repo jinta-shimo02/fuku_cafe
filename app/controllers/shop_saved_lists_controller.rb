@@ -2,7 +2,7 @@ class ShopSavedListsController < ApplicationController
   before_action :set_list, only: %i[show edit update destroy]
 
   def index
-    @shop_saved_lists = current_user.shop_saved_lists
+    @shop_saved_lists = current_user.shop_saved_lists.order(created_at: :asc)
   end
 
   def new
@@ -18,7 +18,9 @@ class ShopSavedListsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @list_shops = @shop_saved_list.shops.order(created_at: :desc)
+  end
 
   def edit; end
 
