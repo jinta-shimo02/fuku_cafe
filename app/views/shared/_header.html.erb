@@ -3,7 +3,7 @@
     <%= link_to root_path do %>
       <%= image_tag 'logo.png', class: 'rounded-full h-10 w-10 md:h-16 md:w-16 m-auto' %>
     <% end %>
-    <%= link_to '服カフェ', root_path, class: 'font-bold text-xs md:text-xl hover:text-yellow-500 ml-2 md:ml-3' %>
+    <%= link_to '服カフェ', root_path, class: 'font-bold text-xs md:text-xl hover:border-b hover:border-yellow-500 hover:text-yellow-500 ml-2 md:ml-3' %>
   </div>
   <div class="drawer-end flex items-center">
     <div data-controller="autocomplete" data-autocomplete-url-value="/brands/search" class="relative">
@@ -11,11 +11,11 @@
       <input type="hidden" name="brand_id" data-autocomplete-target="hidden">
       <ul data-autocomplete-target="results" class="absolute z-10 focus:within:bg-yellow-100"></ul>
     </div>
-    <div id="search-clothes-button" class="md:flex md:items-center  mx-3 md:mx-8 hover:text-yellow-500">
+    <div id="search-clothes-button" class="md:flex md:items-center  mx-3 md:mx-8 hover:border-b hover:border-yellow-500 hover:text-yellow-500">
       <i class="fa-solid fa-shirt"></i>
       <button class="ml-1 hidden md:block"><%= t('defaults.search_shop') %></button>
     </div>
-    <div id="search-cafe-button" class="md:flex md:items-center mr-3 md:mr-8 hover:text-yellow-500">
+    <div id="search-cafe-button" class="md:flex md:items-center mr-3 md:mr-8 hover:border-b hover:border-yellow-500 hover:text-yellow-500">
       <i class="fa-solid fa-mug-saucer"></i>
       <button class="ml-1 hidden md:block"><%= t('defaults.search_cafe') %></button>
     </div>
@@ -26,18 +26,18 @@
     <div class="drawer-side z-10">
       <label for="my-drawer-4" class="drawer-overlay"></label>
       <ul class="menu p-4 w-80 h-full bg-yellow-50 text-base-content">
-        <%= link_to t('defaults.maps'), home_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
+        <%= link_to t('defaults.maps'), home_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:border-b hover:border-yellow-500 hover:text-yellow-500' %>
         <% if current_user %>
-        <%= link_to t('defaults.mypage'), my_page_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
+        <%= link_to t('defaults.mypage'), my_page_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:border-b hover:border-yellow-500 hover:text-yellow-500' %>
           <li class='pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2'><%= t('defaults.shop_saved_list') %></li>
           <% @shop_saved_lists.each do |list| %>
-            <%= link_to list.name, shop_saved_list_path(list), class: 'pl-7 mt-5 text-xs md:text-sm border-b border-gray-300 pb-2 hover:text-yellow-500' %>
+            <%= link_to list.name, shop_saved_list_path(list), class: 'pl-7 mt-5 text-xs md:text-sm border-b border-gray-300 pb-2 hover:border-b hover:border-yellow-500 hover:text-yellow-500' %>
           <% end %>
         <% end %>
         <% if user_signed_in? %>  
-          <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
+          <%= link_to t('defaults.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:border-b hover:border-yellow-500 hover:text-yellow-500' %>
         <% else %>
-          <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:text-yellow-500' %>
+          <%= link_to t('defaults.sign_in'), new_user_session_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:border-b hover:border-yellow-500 hover:text-yellow-500' %>
         <% end %>
       </ul>
     </div>

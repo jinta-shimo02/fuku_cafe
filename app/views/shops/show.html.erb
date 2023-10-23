@@ -16,7 +16,7 @@
       </div>
       <p class="pl-6 md:pl-20 mt-1 md:mt-2 text-[8px] md:text-base">電話番号：<%= @shop.phone_number %></p>
       <p class="pl-6 md:pl-20 mt-1 md:mt-2 text-[8px] md:text-base">公式サイト：
-        <span class="text-[10px] md:text-base text-blue-500 hover:text-yellow-500">
+        <span class="text-[10px] md:text-base text-blue-500 hover:border-b hover:border-yellow-500 hover:text-yellow-500">
           <%= @shop.web_site.present? ? link_to(@shop.web_site.chomp('/'), @shop.web_site.chomp('/'), target: :_brank) : 'サイトがありません' %>
         </span>
       </p>
