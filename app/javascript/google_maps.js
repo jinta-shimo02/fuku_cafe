@@ -202,7 +202,9 @@ function updateShopList(type, shops) {
             </ul>
           </div>
             <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-3 md:mr-8 mb-3 md:mb-5 bookmark-icon" data-shop-id="${shop.id}">
-            ${userIsLoggedIn ? '<i class="fa-solid fa-folder w-7 g-4 md:w-10 md:h-6 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
+              <div class="tooltip" data-tip="リストへ保存">
+                ${userIsLoggedIn ? '<i class="fa-solid fa-folder w-7 g-4 md:w-10 md:h-6 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
+              </div>
             </a>
         </div>
       `;
