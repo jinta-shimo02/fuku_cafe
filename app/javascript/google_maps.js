@@ -112,11 +112,13 @@ function initMap() {
   document.getElementById('search-clothes-button').addEventListener('click', function () {
     currentFilter = 'clothes';
     filterSearch(currentFilter);
+    setFlashMessage("success", "セレクトショップのみで検索ができます");
   });
 
   document.getElementById('search-cafe-button').addEventListener('click', function () {
     currentFilter = 'cafe';
     filterSearch(currentFilter);
+    setFlashMessage("success", "カフェのみで検索ができます");
   });
 
   document.addEventListener("click", function(event) {
@@ -278,6 +280,6 @@ function setFlashMessage(type, message) {
     flashContainerElement.appendChild(flashContainer);
     setTimeout(() => {
       flashContainerElement.removeChild(flashContainer);
-    }, 3000)
+    }, 4000)
   }
 }
