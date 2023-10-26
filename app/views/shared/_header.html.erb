@@ -3,22 +3,31 @@
     <%= link_to root_path do %>
       <%= image_tag 'logo.png', class: 'rounded-full h-10 w-10 md:h-16 md:w-16 m-auto' %>
     <% end %>
-    <%= link_to '服カフェ', root_path, class: 'font-bold text-xs md:text-xl hover:border-b hover:border-yellow-500 hover:text-yellow-500 ml-2 md:ml-3' %>
+    <%= link_to '服カフェ', root_path, class: 'font-bold text-sm md:text-xl hover:border-b hover:border-yellow-500 hover:text-yellow-500 ml-2 md:ml-3' %>
   </div>
   <div class="drawer-end flex items-center">
-    <div data-controller="autocomplete" data-autocomplete-url-value="/brands/search" class="relative">
-      <input name="input" type="text" class="text-center text-xs md:text-base border border-gray-400 p-1 bg-yellow-100 w-20 md:w-48" data-autocomplete-target="input" placeholder="マルチ検索"/>
-      <input type="hidden" name="brand_id" data-autocomplete-target="hidden">
-      <ul data-autocomplete-target="results" class="absolute z-10 focus:within:bg-yellow-100"></ul>
-    </div>
-    <div id="search-clothes-button" class="md:flex md:items-center  mx-3 md:mx-8 hover:border-b hover:border-yellow-500 hover:text-yellow-500">
-      <i class="fa-solid fa-shirt"></i>
-      <button class="ml-1 hidden md:block"><%= t('defaults.search_shop') %></button>
-    </div>
-    <div id="search-cafe-button" class="md:flex md:items-center mr-3 md:mr-8 hover:border-b hover:border-yellow-500 hover:text-yellow-500">
-      <i class="fa-solid fa-mug-saucer"></i>
-      <button class="ml-1 hidden md:block"><%= t('defaults.search_cafe') %></button>
-    </div>
+    <% if current_page?(home_path) %>
+      <div data-controller="autocomplete" data-autocomplete-url-value="/brands/search" class="relative">
+        <input name="input" type="text" class="text-center text-xs md:text-base border border-gray-400 p-1 bg-yellow-100 w-20 md:w-48" data-autocomplete-target="input" placeholder="検索"/>
+        <input type="hidden" name="brand_id" data-autocomplete-target="hidden">
+        <ul data-autocomplete-target="results" class="absolute z-10 focus:within:bg-yellow-100"></ul>
+      </div>
+      <div id="search-clothes-button" class="md:flex md:items-center mx-3 md:mx-8 hover:border-b hover:border-yellow-500 hover:text-yellow-500">
+        <i class="fa-solid fa-shirt"></i>
+        <button class="ml-1 hidden md:block"><%= t('defaults.search_shop') %></button>
+      </div>
+      <div id="search-cafe-button" class="md:flex md:items-center mr-3 md:mr-8 hover:border-b hover:border-yellow-500 hover:text-yellow-500">
+        <i class="fa-solid fa-mug-saucer"></i>
+        <button class="ml-1 hidden md:block"><%= t('defaults.search_cafe') %></button>
+      </div>
+    <% else %>
+      <% unless current_page?(root_path) %>
+        <div class="flex items-center mx-3 md:mx-8 hover:border-b hover:border-yellow-500 hover:text-yellow-500">
+          <i class="fa-solid fa-earth-americas"></i>
+          <%= link_to t('defaults.maps'), home_path, class: 'ml-0.5 md:ml-1 text-sm md:text-base' %>
+        </div>
+      <% end %>
+    <% end %>
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle"/>
     <label for="my-drawer-4" class="drawer-button">
       <i class="fas fa-bars mr-5 h-5 w-5"></i>
@@ -26,7 +35,6 @@
     <div class="drawer-side z-10">
       <label for="my-drawer-4" class="drawer-overlay"></label>
       <ul class="menu p-4 w-80 h-full bg-yellow-50 text-base-content">
-        <%= link_to t('defaults.maps'), home_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:border-b hover:border-yellow-500 hover:text-yellow-500' %>
         <% if current_user %>
         <%= link_to t('defaults.mypage'), my_page_path, class: 'pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2 hover:border-b hover:border-yellow-500 hover:text-yellow-500' %>
           <li class='pl-1 mt-10 text-xs md:text-sm border-b border-gray-500 pb-2'><%= t('defaults.shop_saved_list') %></li>

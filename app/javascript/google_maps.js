@@ -112,11 +112,13 @@ function initMap() {
   document.getElementById('search-clothes-button').addEventListener('click', function () {
     currentFilter = 'clothes';
     filterSearch(currentFilter);
+    setFlashMessage("success", "セレクトショップのみで検索ができます");
   });
 
   document.getElementById('search-cafe-button').addEventListener('click', function () {
     currentFilter = 'cafe';
     filterSearch(currentFilter);
+    setFlashMessage("success", "カフェのみで検索ができます");
   });
 
   document.addEventListener("click", function(event) {
@@ -202,7 +204,9 @@ function updateShopList(type, shops) {
             </ul>
           </div>
             <a href="/shop_saved_lists" data-turbo-frame="modal" class="ml-auto mr-3 mt-auto mr-3 md:mr-8 mb-3 md:mb-5 bookmark-icon" data-shop-id="${shop.id}">
-            ${userIsLoggedIn ? '<i class="fa-solid fa-folder w-7 g-4 md:w-10 md:h-6 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
+              <div class="tooltip" data-tip="リストへ保存">
+                ${userIsLoggedIn ? '<i class="fa-solid fa-folder w-7 g-4 md:w-10 md:h-6 hover:text-yellow-500" data-modal-target="myModal"></i>' : ''}
+              </div>
             </a>
         </div>
       `;
@@ -276,6 +280,6 @@ function setFlashMessage(type, message) {
     flashContainerElement.appendChild(flashContainer);
     setTimeout(() => {
       flashContainerElement.removeChild(flashContainer);
-    }, 3000)
+    }, 4000)
   }
 }
