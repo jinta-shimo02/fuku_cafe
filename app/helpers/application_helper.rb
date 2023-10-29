@@ -17,12 +17,12 @@ module ApplicationHelper
         description: '「服カフェ」では、セレクトショップ、カフェを同時に検索することができます。',
         type: 'website',
         url: request.original_url,
-        image: image_url('ogp.png'),
+        image: image_url('ogp1.png'),
         local: 'ja-JP'
       },
       twitter: {
         card: 'summary_large_image',
-        image: image_url('ogp.png')
+        image: image_url('ogp1.png')
       }
     }
   end
