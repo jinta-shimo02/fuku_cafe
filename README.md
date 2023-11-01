@@ -10,7 +10,7 @@ https://fuku-cafe.com
 
 ▼**Qiita記事**
 
-今後追加予定
+https://qiita.com/jinta_02/items/329abd44056277a17d73
 
 ▼**告知ツイート**
 
