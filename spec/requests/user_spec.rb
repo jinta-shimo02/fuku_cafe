@@ -4,7 +4,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /users/sign_up' do
     it 'ユーザー新規登録画面の表示に成功すること' do
       get  new_user_registration_path
-      expect(response.status).to eq 200
+      expect(response).to have_http_status(200)
     end
   end
 
@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :request do
       expect {
         post user_registration_path params: { user: { name: user.name, email: user.email, password: user.password, password_confirmation: user.password} }
       }.to change(User, :count).by(1)
-      expect(response).to have_http_status(:redirect)
+      expect(response).to have_http_status(303)
       expect(response).to redirect_to home_path
     end
 
