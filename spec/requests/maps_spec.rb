@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Maps", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+  describe "GET /home" do
+    it 'マップ画面の表示に成功すること' do
+      get home_path
+      expect(response).to have_http_status(:success)
+    end
   end
 end
