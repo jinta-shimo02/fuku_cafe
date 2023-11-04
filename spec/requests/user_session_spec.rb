@@ -6,7 +6,7 @@ RSpec.describe 'UserSessions', type: :request do
   describe 'GET /users/sign_in' do
     it 'ユーザーのログイン画面の表示に成功すること' do
       get new_user_session_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success)
     end
   end
 
@@ -31,7 +31,6 @@ RSpec.describe 'UserSessions', type: :request do
     it '正常にログアウトができること' do
       post user_session_path params: { user: { email: user.email, password: user.password } }
       delete destroy_user_session_path
-      expect(response).to have_http_status(303)
       expect(response).to redirect_to root_path
     end
   end

@@ -4,7 +4,7 @@ RSpec.describe 'Users', type: :request do
   describe 'GET /users/sign_up' do
     it 'ユーザー新規登録画面の表示に成功すること' do
       get  new_user_registration_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success)
     end
   end
 

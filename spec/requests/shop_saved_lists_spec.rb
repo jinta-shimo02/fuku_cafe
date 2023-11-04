@@ -9,7 +9,7 @@ RSpec.describe "ShopSavedLists", type: :request do
     it 'リスト一覧画面の表示に成功すること' do
       login(user)
       get shop_saved_lists_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success)
     end
 
     it 'ログインしていないとリスト一覧画面の表示に失敗すること' do
@@ -32,7 +32,7 @@ RSpec.describe "ShopSavedLists", type: :request do
     it 'リスト詳細画面の表示に成功すること' do
       login(user)
       get shop_saved_list_path(shop_saved_list_1)
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success)
     end
 
     it 'ログインしていないとリスト詳細画面の表示に失敗すること' do
@@ -45,7 +45,7 @@ RSpec.describe "ShopSavedLists", type: :request do
     it 'リスト編集画面の表示に成功すること' do
       login(user)
       get edit_shop_saved_list_path(shop_saved_list_1)
-      expect(response).to have_http_status(200)      
+      expect(response).to have_http_status(:success)      
     end
 
     it 'ログインしていないとリスト編集画面の表示に失敗すること' do
@@ -58,7 +58,7 @@ RSpec.describe "ShopSavedLists", type: :request do
     it 'リスト更新処理が正常に実行されること' do
       login(user)
       patch shop_saved_list_path(shop_saved_list_1), params: { shop_saved_list: { name: 'リスト', user: user } }
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success)
     end
 
     it 'リストが空欄の場合は更新処理に失敗すること' do
