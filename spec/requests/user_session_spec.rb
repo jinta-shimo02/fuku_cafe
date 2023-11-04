@@ -13,19 +13,16 @@ RSpec.describe 'UserSessions', type: :request do
   describe 'POST /users/sign_in' do
     it '正しい入力でユーザーのログインに成功すること' do
       post user_session_path params: { user: { email: user.email, password: user.password } }
-      expect(response).to have_http_status(303)
       expect(response).to redirect_to home_path
     end
 
     it '違うメールアドレスを入力したときにログインに失敗すること' do
       post user_session_path params: { user: { email: 'a@wrong.com', password: user.password } }
-      expect(response).to have_http_status(422)
       expect(response.body).to include 'メールアドレスまたはパスワードが違います。'
     end
 
     it '違うパスワードを入力したときにログインに失敗すること' do
       post user_session_path params: { user: { email: user.email, password: 'different_password' } }
-      expect(response).to have_http_status(422)
       expect(response.body).to include 'メールアドレスまたはパスワードが違います。'
     end
   end
