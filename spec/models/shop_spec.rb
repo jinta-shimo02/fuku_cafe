@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Shop, type: :model do
-  describe 'ショップのバリデーションに関するテスト' do
+  describe 'バリデーションに関するテスト' do
     it '店名、緯度、経度、place_idがある場合は有効' do
       valid_shop = FactoryBot.build(:shop)
       expect(valid_shop).to be_valid
@@ -28,7 +28,7 @@ RSpec.describe Shop, type: :model do
     end
   end
 
-  describe 'ショップの関連付けに関するテスト' do
+  describe '関連付けに関するテスト' do
     before do
       @shop = FactoryBot.create(:shop)
     end

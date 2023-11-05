@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'ユーザーのバリデーションに関するテスト' do
+  describe 'バリデーションに関するテスト' do
     it '名前、メールアドレス、パスワードがある場合は有効' do
       valid_user = FactoryBot.build(:user)
       expect(valid_user).to be_valid
@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'ユーザーの関連付けに関するテスト' do
+  describe '関連付けに関するテスト' do
     before do
       @user = FactoryBot.create(:user)
     end
@@ -56,7 +56,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'ユーザーのenum値に関するテスト' do
+  describe 'enum値に関するテスト' do
     it '一般ユーザーが正しいenum値を持つこと' do
       user = FactoryBot.create(:user)
       expect(user.role).to eq 'general'
