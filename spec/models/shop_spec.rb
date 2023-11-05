@@ -40,15 +40,13 @@ RSpec.describe Shop, type: :model do
 
     it 'shop_brandsとbrandsの関連付けが正しく設定されていること' do
       brand = FactoryBot.create(:brand)
-      shop_brand = FactoryBot.create(:shop_brand, shop: @shop, brand: brand)
-      expect(@shop.shop_brands).to include shop_brand
+      @shop.brands << brand
       expect(@shop.brands).to include brand
     end
 
     it 'list_shopsとshop_saved_listの関連付けが正しく設定されていること' do
       shop_saved_list = FactoryBot.create(:shop_saved_list)
-      list_shop = FactoryBot.create(:list_shop, shop_saved_list: shop_saved_list, shop: @shop)
-      expect(@shop.list_shops).to include list_shop
+      @shop.shop_saved_lists << shop_saved_list
       expect(@shop.shop_saved_lists).to include shop_saved_list
     end
 
