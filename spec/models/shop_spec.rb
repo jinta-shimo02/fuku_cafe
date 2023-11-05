@@ -45,7 +45,8 @@ RSpec.describe Shop, type: :model do
     end
 
     it 'list_shopsとshop_saved_listの関連付けが正しく設定されていること' do
-      shop_saved_list = FactoryBot.create(:shop_saved_list)
+      user = FactoryBot.create(:user)
+      shop_saved_list = FactoryBot.create(:shop_saved_list, user: user)
       @shop.shop_saved_lists << shop_saved_list
       expect(@shop.shop_saved_lists).to include shop_saved_list
     end
