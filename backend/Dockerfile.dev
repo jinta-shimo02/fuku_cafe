@@ -1,0 +1,13 @@
+FROM ruby:3.4-slim
+
+RUN apt-get update -qq \
+  && apt-get install -y --no-install-recommends build-essential git curl libpq-dev libyaml-dev postgresql-client \
+  && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# gem は named volume (/usr/local/bundle) に保持する
+ENV BUNDLE_PATH=/usr/local/bundle \
+    BUNDLE_JOBS=4
+
+EXPOSE 3000
